@@ -1,7 +1,7 @@
 baseinstall
 ===
 
-baseinstall is a responsive starter theme for WordPress development built on Underscores as a starting point. It features a [theme wrapper](http://scribu.net/wordpress/theme-wrappers.html) inspired by Scribu for keeping page templates free of excessive repetition. 
+baseinstall is a responsive starter theme for WordPress development built on Underscores as a starting point. It features a [theme wrapper](http://scribu.net/wordpress/theme-wrappers.html) inspired by Scribu for keeping page templates free of excessive repetition.
 
 As an added bonus it also features a customizable theme options page, a mobile menu with sub-menu toggles, and no external library/framework dependencies such as jQuery, Bootstrap, or Foundation. The minified CSS/JS files weigh in at 77kb combined.
 
@@ -17,7 +17,7 @@ First, either download the files from this repo or run the following commands in
 
 ```shell
 $ cd your-wp-directory/wp-content/themes
-$ git clone ssh://codeserver.dev.eecb2848-538b-42bc-abb3-0a3d65e53265@codeserver.dev.eecb2848-538b-42bc-abb3-0a3d65e53265.drush.in:2222/~/repository.git -b master baseinstall
+$ git clone https://github.com/imarc/wp-baseinstall.git baseinstall
 ```
 
 Once the theme files are in <code>wp-content/themes</code>, open <code>webpack.mix.js</code> in your code editor and look for this:
@@ -26,7 +26,7 @@ Once the theme files are in <code>wp-content/themes</code>, open <code>webpack.m
 proxy: 'https://baseinstall:8890/' // Project URL. Could be something like localhost:8888.
 ```
 
-You'll need to update that line above to reflect your local development settings for BrowserSync to work properly. Check your `wp-config.php` or `wp-config-local.php` and look for the lines that define `WP_HOME` and `WP_SITEURL`. 
+You'll need to update that line above to reflect your local development settings for BrowserSync to work properly. Check your `wp-config.php` or `wp-config-local.php` and look for the lines that define `WP_HOME` and `WP_SITEURL`.
 
 ```php
 define( 'WP_HOME', 'https://baseinstall:8890/' );
@@ -39,8 +39,6 @@ You also might want to run a search-and-replace to change the theme name from "b
 $ cd baseinstall
 $ npm install
 ```
-
-After a few seconds (maybe longer, depending on your computer), run <code>gulp</code> and your default browser should pop up with your site, ready to get to work.
 
 ```shell
 $ npm run watch
