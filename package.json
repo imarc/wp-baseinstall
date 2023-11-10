@@ -1,0 +1,33 @@
+{
+  "name": "baseinstall",
+  "version": "1.0.0",
+  "description": "Custom WordPress base theme",
+  "main": "index.js",
+  "scripts": {
+    "dev": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "mix --production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.34",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^12.2.0",
+    "vue-loader": "^16.8.3"
+  },
+  "dependencies": {
+    "choices.js": "^10.1.0",
+    "flickity": "^3.0.0",
+    "jquery": "^3.6.4",
+    "select2": "^4.1.0-rc.0",
+    "vue": "^3.2.47"
+  }
+}

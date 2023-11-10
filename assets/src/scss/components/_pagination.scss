@@ -1,0 +1,81 @@
+// Pagination styles for blog and archive pages
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+.pagination {
+	text-align: center;
+	margin: ($spacing_unit * 2) 0 ($spacing_unit * 3);
+
+	ul {
+		padding: 0;
+		margin: 0 0 ($spacing_unit / 4);
+	}
+
+	li {
+		display: inline-block;
+		margin: 0 ($spacing_unit / 8);
+
+		a {
+			display: inline-block;
+			font-size: 18px;
+			line-height: 32px;
+			height: 32px;
+			width: 32px;
+			color: $color__black;
+			transition: $transition_duration;
+			border: 1px solid transparent;
+			border-radius: 16px;
+
+			&:visited {
+				color: $color__black;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				opacity: .8;
+				background: $color__brand-yellow;
+				border-color: $color__black;
+			}
+		}
+
+		&.prev-next {
+			margin: 0;
+			text-align: center;
+
+			@include mobile {
+				margin: 0 ($spacing_unit / 4);
+			}
+		}
+
+		&.active {
+			a {
+				background: $color__brand-yellow;
+				border-color: $color__black;
+				opacity: 1;
+			}
+		}
+	}
+
+	// chevrons instead of actual "previous" and "next" displayed as text 
+	&__chevron {
+		display: inline-block;
+		position: relative;
+		top: 1px;
+
+		&.-prev {
+			right: 1px;
+		}
+
+		&.-next {
+			left: 1px;
+		}
+	}
+
+	// pagination count below paged links, "showing 1-10 of 100 posts"
+	&__count {
+		font-family: $font__main;
+		font-size: 16px;
+		line-height: 22px;
+		color: $color__brand-md-gray;
+		// margin-top: $spacing_unit / 4;
+	}
+}

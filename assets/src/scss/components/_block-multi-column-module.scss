@@ -1,0 +1,248 @@
+.multiColumnModule {
+	position: relative;
+	text-align: center;
+	padding: ($spacing_unit * 2) 0;
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	&.-customColor {
+		background: inherit;
+	}
+
+	&.-addBorders {
+		border-top: 1px solid $color__black;
+		border-bottom: 1px solid $color__black;
+	}
+
+	&.-addBoxShadow {
+		z-index: 1;
+		box-shadow: $box__shadow;
+	}
+
+	&__title {
+		font-family: $font__headings;
+		font-weight: 500;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		@include tablet {
+			margin-bottom: $spacing_unit * 2;
+		}
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+	}
+
+	&__inner {
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 0;
+			margin-left: -$spacing_unit / 2;
+			margin-right: -$spacing_unit / 2;
+		}
+
+		@include laptop {
+			flex-wrap: nowrap;
+
+			// > * {
+			// 	flex-basis: 25%;
+			// }
+		}
+	}
+
+	&__block {
+		text-align: left;
+		position: relative;
+		box-sizing: border-box;
+		width: 100%;
+		text-align: center;
+		font-family: $font__main;
+		margin-bottom: $spacing_unit;
+
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			padding: 0 ($spacing_unit / 2);
+			max-width: 33.3333%;
+		}
+
+		@include laptop {
+			margin: 0;
+		}
+	}
+
+	&__blockBorder {
+		position: relative;
+		flex-grow: 1;
+		padding: 0 ($spacing_unit / 2);
+		transition: $transition_duration;
+		border-radius: $border_radius;
+		overflow: hidden;
+		border: 1px solid transparent;
+		background: transparent;
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+		}
+
+		// if link is present, add hover effect 
+		&.-hasLink {
+			padding: $spacing_unit ($spacing_unit / 2);
+
+			&:hover {
+				cursor: pointer;
+				background: $color__offwhite;
+				border-color: $color__black;
+				box-shadow: $box__shadow;
+
+				// hovering the parent breaks the button hover, leaving here for now 
+				.multiColumnModule__blockLink {
+					opacity: 1;
+					// box-shadow: 5px 5px $color__black;
+					// transform: translate(-0.25rem,-0.25rem);
+				}
+			}
+		}
+	}
+
+	&__image {
+		margin-bottom: $spacing_unit * 1.5;
+
+		img {
+			display: block;
+			width: auto;
+			height: auto;
+			max-height: 146px;
+			margin: 0 auto;
+		}
+	}
+
+	&__blockTextWrap {
+		text-align: center; 
+		margin: 0 auto ($spacing_unit / 2);
+
+		.-hasLink & {
+			max-width: 240px;
+		}
+
+		@include tablet {
+			flex-grow: 1;
+		}
+	}
+
+	&__blockTitle {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 1.5em;
+		letter-spacing: 0.5px;
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit / 2;
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 28px;
+		text-align: center;
+		letter-spacing: -0.5px;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__blockText {
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 1.5em;
+		margin: 0;
+		transition: color 0.3s ease-out;
+
+		// paragraphs area added to WYSIWYG text, just evening spacing out 
+		p { 
+			margin: 0;
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__blockLink {
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+		text-decoration: none;
+		background: $color__brand-primary;
+		border: 1px solid $color__black;
+		color: $color__black;
+		font-size: 16px;
+		line-height: 34px;
+		border-radius: 50%;
+		transition: $transition_duration;
+		margin: 0 auto;
+		opacity: 0;
+
+		&:hover {
+			text-decoration: none;
+			color: $color__black;
+		}
+
+		&:active,
+		&:focus,
+		&:visited {
+			color: $color__black;
+		}
+
+		&.-buttonText {
+			height: unset;
+			width: unset;
+			padding: 0 ($spacing_unit * 1.5);
+			font-family: $font__bold;
+			font-weight: 400;
+			line-height: 3rem;
+			border-radius: $border_radius;
+			color: $color__black;
+		}
+
+		// not strict abem, but we're dealing with an icon font in a specific module 
+		.icon-chevron-right {
+			margin-left: 2px;
+		}
+
+		&::before {
+			content: '';
+			cursor: pointer;
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	&__button {
+		@extend .button;
+		margin-bottom: 0;
+
+		@include tablet {
+			margin-top: $spacing_unit * 1.5;
+		}
+	}
+}

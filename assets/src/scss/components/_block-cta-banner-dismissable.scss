@@ -1,0 +1,265 @@
+
+/* homepage dismissable CTA */
+.dismissibleCtaBanner {
+	position: relative;
+	z-index: 10;
+	background: $color__brand-primary;
+	overflow: hidden;
+	margin: 0;
+	box-shadow: 41px 0px 33.4221px rgba(0, 0, 0, 0.0431313), 
+				22px 0px 17.869px rgba(0, 0, 0, 0.0357664), 
+				12px 0px 10.0172px rgba(0, 0, 0, 0.03), 
+				6.5px 0px 5.32008px rgba(0, 0, 0, 0.0242336), 
+				3px 0px 2.21381px rgba(0, 0, 0, 0.0168687);
+
+	// wp block editor 
+	&.-customBgColor {
+		background: inherit;
+	}
+
+	@include tablet {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&__block {
+		max-height: 800px;
+		transition: max-height .3s;
+
+		&.-hidden {
+			max-height: 0;
+		}
+	}
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		text-align: center;
+
+		padding: ($spacing_unit * 1.25) 0 0;
+		max-width: $width_laptop;
+		margin-left: auto;
+		margin-right: auto;
+
+		@include tablet {      
+			padding: ($spacing_unit * 1.5) $spacing_unit;
+			flex-direction: row;
+			flex-direction: row-reverse;
+			text-align: left;
+		}
+	}
+
+	// .-text {
+	// 	@include laptop {
+	// 		display: flex;
+	// 		flex-direction: row;
+	// 		align-items: center;
+	// 		justify-content: space-between;
+	// 	}
+	// }
+
+	.-copy {
+		padding: 0 $spacing_unit;
+
+		@include tablet {
+			padding: 0 ($spacing_unit * 1.5) 0 0;
+		}
+
+		// @include laptop {
+		// 	padding-right: $spacing_unit;
+		// }
+
+		.-eyebrow {
+			display: block;
+			font-family: $font__bold;
+			font-weight: 400;
+			font-size: 21px;
+			line-height: 24px;
+			color: $color__brand-blue;
+			margin: 0 0 ($spacing_unit / 2);
+
+			&.-customTextColor {
+				color: inherit;
+			}
+
+			@include tablet {
+				margin: 0 0 ($spacing_unit / 1.5);
+			}
+		}
+
+		.-title {
+			color: $color__brand-dk-green;
+			font-family: $font__headings;
+			letter-spacing: -0.5px;
+			font-size: 32px;
+			line-height: 1.2;
+			margin: 0 0 ($spacing_unit / 1.5);
+
+			&.-customTextColor {
+				color: inherit;
+			}
+
+			@include tablet {
+				font-size: 34px;
+			}
+
+			@include laptop {
+				font-size: 38px;
+			}
+
+			@include desktop {
+				font-size: 40px;
+				// margin: 0;
+			}
+		}
+	}
+
+	.-links {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin-bottom: $spacing_unit * 1.5;
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+
+		@include tablet {
+			justify-content: flex-start;
+			flex-direction: row;
+			margin-bottom: 0;
+		}
+
+		// @include laptop {
+		// 	justify-content: center;
+		// 	flex-direction: column;
+		// }
+	}
+
+	.button {
+		margin-bottom: $spacing_unit;
+		flex-shrink: 0;
+		// display: inline-block;
+		margin-right: 0;
+		// text-decoration: none;
+		// background: $color__brand-red;
+		// color: $color__white;
+		// font-size: 20px;
+		// font-weight: 700;
+		// line-height: $spacing_unit * 2;
+		// padding: 0 $spacing_unit;
+		// border-radius: $spacing_unit;
+		// border: none;
+		white-space: nowrap;
+
+		@include tablet {
+			margin-bottom: 0;
+			margin-right: $spacing_unit;
+		}
+
+		// @include laptop {
+		// 	margin-bottom: $spacing_unit;
+		// 	margin-right: 0;
+		// }
+	}
+
+	.-textLink {
+		flex-shrink: 0;
+		display: inline-block;
+		margin-bottom: $spacing_unit;
+
+		&.-customTextColor {
+			color: inherit;
+			border-color: inherit;
+		}
+	}
+
+	.-image {
+		position: relative;
+		width: 100%;
+		max-height: 180px;
+		// overflow: hidden;
+
+		@include tablet {
+			max-height: unset;
+			margin-right: $spacing_unit * 3;
+			max-width: 240px;
+		}
+
+		// @include desktop {
+		// 	margin-right: $spacing_unit * 2;
+		// }
+
+		// @include desktop {
+		// 	max-width: 40%;
+		// }
+
+		img {
+			position: relative;
+			z-index: 999;
+			display: block;
+			width: 100%;
+			height: auto;
+			max-width: 380px;
+			margin: 0 auto;
+
+			@include tablet {
+				max-width: 100%;
+				margin: 0;
+			}
+		}
+	}
+
+	.-line {
+		@include tablet {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 1px;
+			opacity: .5;
+			background-image: linear-gradient(to right, $color__black 0% 91%, 
+							  transparent 91% 95%, $color__black 95% 100%);
+		}
+
+		@include laptop {
+			left: -20px;
+			width: 155%;
+		}
+
+		// @include desktop {
+		// 	width: 155%;
+		// }
+	}
+
+	.-close {
+		position: absolute; 
+		z-index: 11;
+		top: $spacing_unit / 1.5;
+		right: $spacing_unit / 1.5;
+		cursor: pointer;
+		display: block;
+		height: 36px;
+		width: 36px;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			display: block;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
+	}
+}

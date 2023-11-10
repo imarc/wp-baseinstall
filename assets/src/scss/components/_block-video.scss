@@ -1,0 +1,78 @@
+.videoBlock {
+	position: relative;
+	text-align: center;
+	padding: ($spacing_unit * 2) 0;
+
+	// full background image 
+	@include bgImage;
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	@include laptop {
+		padding: ($spacing_unit * 4) 0;
+	}
+
+	// remove padding if inside post 
+	.singlePost & {
+		padding: 0;
+	}
+
+	&__text {
+		margin-bottom: $spacing_unit * 1.5;
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__title {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 36px;
+		text-align: center;
+		letter-spacing: -0.5px;
+		margin-bottom: $spacing_unit / 2;
+	}
+
+	&__description {
+		text-align: center;
+	}
+
+	&__embed {
+		position: relative;
+		width: 100%;
+		// max-width: $header_footer_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+
+		// remove padding and add bottom margin if inside post 
+		.singlePost & {
+			padding: 0;
+			margin-bottom: $spacing_unit;
+		}
+		
+		&-wrapper {
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+			height: 0;
+			padding-bottom: 56.25%; // 16:9 
+			border-radius: $border_radius;
+			box-shadow: $box__shadow;
+
+			iframe {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}

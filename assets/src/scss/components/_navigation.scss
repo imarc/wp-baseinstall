@@ -1,0 +1,565 @@
+// Main menu
+.siteNavigation {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 80%;
+	height: 100vh;
+	max-width: 360px;
+	transition: $transition_duration ease-in-out;
+	background-color: $color__offwhite;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	z-index: 8;
+
+	// open state for mobile nav
+	&.-mainMenuOpen {
+		right: 0;
+		box-shadow: $box__shadow;
+
+		@include laptop {
+			box-shadow: none;
+		}
+	}
+
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+
+	@include laptop {
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		width: 100%;
+		height: auto;
+		max-width: 100%;
+		max-height: $header_height * 1.5;
+		background-color: $color__white;
+		overflow: visible;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		margin-right: -($spacing_unit / 4);
+
+		&.-menu-offset {
+			margin-right: 0;
+		}
+	}
+
+	ul {
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		position: relative;
+
+		@include laptop {
+			display: inline-block;
+			max-height: inherit;
+			overflow: visible;
+		}
+
+		// primary menu, top center on desktop 
+		&.primary-menu {
+			margin: $header_height 0 ($spacing_unit / 2); // clears fixed header
+			padding: 1px 0; // balances the vertical spacing
+
+			@include laptop {
+				padding: 0;
+				margin: 0 0 0 auto;
+
+				&.-menu-offset {
+					margin: 0 auto;
+				}
+			}
+		}
+
+		// secondary menu, top right on desktop 
+		&.secondary-menu {
+			margin: $spacing_unit 0 $header_height; // clears fixed header
+			padding: 0 ($spacing_unit * 1.5);
+
+			@include laptop {
+				margin: 0;
+				padding: 0;
+			}
+
+			li {
+				display: inline-block;
+
+				&.button {
+					display: block;
+					// padding-left: $spacing_unit;
+
+					@include laptop {
+						display: inline-block;
+						padding: 0;
+					}
+				}
+
+				&:hover > a,
+				&.focus > a {
+					background: transparent;
+					// text-shadow: .5px 0 0 currentColor;
+					color: $color__brand-blue;
+				}
+
+				@include laptop {
+					&:last-of-type {
+						a {
+							padding-right: 0;
+						}
+					}
+				}
+			}
+
+			a {
+				font-family: $font__main;
+				color: $color__brand-md-gray;
+				// color: $color__brand-blue;
+				padding: 0 ($spacing_unit * .75) 0 0;
+				font-size: 16px;
+
+				@include laptop {
+					// font-size: 14px;
+					padding: 0 0 0 ($spacing_unit / 2);
+					color: $color__black;
+				}
+			}
+		}
+
+		// show 2nd-level menu on hover and focus 
+		li {
+			&:hover > ul,
+			&.focus > ul {
+				left: auto;
+				opacity: 1;
+			}
+
+			// This allows the dropdown menus to be open while being tabbed through
+			&:focus-within > ul {
+				left: auto;
+				opacity: 1;
+			}
+
+			// WordPress adds classes to the <li>, so this allows us to target
+			// that parent element to apply button styles to the child <a>
+			&.button {
+				border: none;
+				border-color: transparent;
+				background: transparent;
+				border-radius: 0;
+				color: inherit;
+				line-height: 1;
+				padding: 0;
+				box-shadow: none;
+				transform: none;
+				text-align: left;
+
+				a {
+					display: block;
+					display: inline-block;
+					text-decoration: none;
+					background: $color__brand-primary;
+					border: 1px solid $color__black;
+					color: $color__black;
+					padding: 0 ($spacing_unit * 1.5);
+					margin: 0 0 ($spacing_unit / 4);
+					line-height: $spacing_unit;
+					font-family: $font__bold;
+					font-weight: 400;
+					font-size: 16px;
+					// letter-spacing: 1px;
+					border-radius: $border_radius;
+					transition: $transition_duration;
+
+					&:hover {
+						background: $color__brand-primary;
+						color: $color__black;
+						border: 1px solid $color__black;
+						// box-shadow: 5px 5px $color__black;
+						// transform: translate(-0.25rem,-0.25rem);
+					}
+
+					&:active,
+					&:focus {
+						color: $color__black;
+						transition: $transition_duration / 3;
+						// box-shadow: 2px 2px $color__black;
+						// transform: translate(-0.125rem,-0.125rem);
+					}
+
+					@include laptop {
+						font-size: 14px;
+						margin: 0 ($spacing_unit / 2);
+						padding: 0 ($spacing_unit * .625);
+					}
+				}
+			}
+		}
+
+		// 2nd-level menu 
+		ul {
+			background: $color__brand-lt-gray;
+
+			@include laptop {
+				position: absolute;
+				z-index: 99999;
+				left: -999em;
+				opacity: 0;
+				transition: opacity $transition_duration;
+				border: 1px solid $color__black;
+				border-radius: $border_radius;
+				background: $color__white;
+
+				// testing placement 
+				// left: auto; 
+				// opacity: 1;
+
+				li {
+					display: block;
+					margin: 0;
+				}
+
+				a {
+					min-width: 100px;
+				}
+			}
+		}
+	}
+
+	li {
+		display: block;
+		position: relative;
+		margin: 0;
+
+		@include laptop {
+			display: inline-block;
+			border: none;
+			padding: ($spacing_unit / 4) 0;
+		}
+
+		&:hover > a,
+		&.focus > a {
+			outline: none;
+
+			@include laptop {
+				background: $color__offwhite;
+				color: $color__brand-blue;
+			}
+		}
+
+		// active state adjustment for open subMenu items on mobile
+		&.-subMenuOpen {
+			.mainMenuLink {
+				// text-shadow: 1px 0 0 $color__black;
+				color: $color__brand-blue;
+
+				// @include laptop {
+				// 	text-shadow: none;
+				// }
+			}
+		}
+	}
+
+	a {
+		position: relative;
+		display: inline-block;
+		text-decoration: none;
+		white-space: nowrap;
+		font-weight: 400;
+		font-size: 24px;
+		font-family: $font__main;
+		line-height: $spacing_unit * 2;
+		color: $color__black;
+		padding: 0 ($spacing_unit / 4) 0 ($spacing_unit * 1.5);
+		transition: all $transition_duration;
+		border: none;
+
+		// &.mainMenuLink {
+		// 	// letter-spacing: 1px
+		// 	letter-spacing: -0.25px;
+
+		// 	@include laptop {
+		// 		letter-spacing: 0.25px;
+		// 	}
+		// }
+
+		&:focus {
+			outline: -webkit-focus-ring-color auto 1px;
+			outline: none;
+		}
+
+		@include laptop {
+			display: block;
+			border: 1px solid transparent;
+			// font-size: 14px;
+			font-size: 16px;
+			line-height: $spacing_unit * 1.25;
+			border-radius: $border_radius;
+			padding: 0 ($spacing_unit / 4);
+			margin: ($spacing_unit / 2.5) 0;
+		}
+	}
+
+	.current_page_item,
+	.current-menu-item,
+	.current_page_ancestor,
+	.current-menu-ancestor {
+		& > a {
+			// text-shadow: 1px 0 0 currentColor;
+			color: $color__brand-blue;
+
+		}
+	}
+
+	// only adding background color to primary nav items 
+	@include laptop {
+		.primary-menu {
+			.current_page_item,
+			.current-menu-item,
+			.current_page_ancestor,
+			.current-menu-ancestor {
+				& > a {
+					background: $color__offwhite;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Main menu hamburger toggle
+.menuToggle {
+	position: relative;
+	display: block;
+	z-index: 9;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: $header_height;
+	font-size: 0;
+	text-indent: -9999px;
+	appearance: none;
+	box-shadow: none;
+	border-radius: 0;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	transition-delay: $transition_duration;
+
+	@include laptop {
+		display: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: transparent;
+		border-color: transparent;
+		box-shadow: none;
+	}
+
+	span {
+		display: block;
+		position: absolute;
+		margin-left: auto; 
+		margin-right: auto; 
+		left: 0; 
+		right: 0; 
+		// width: 6px;
+		// height: 6px;
+		width: 100%; 
+		height: 2px; 
+		border-radius: 3px;
+		background-color: #212121;
+		transition: all $transition_duration;
+		transition-delay: $transition_duration * .75;
+		transform-origin: center;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			margin-left: auto; 
+			margin-right: auto; 
+			left: 0; 
+			right: 0; 
+			// width: 6px;
+			// height: 6px;
+			width: 100%; 
+			height: 2px; 
+			border-radius: 3px;
+			background-color: #212121;
+			transition: all $transition_duration;
+			transition-delay: $transition_duration * .75;
+			transform-origin: center;
+		}
+
+		&::before {
+			top: -9px;
+		}
+
+		&::after {
+			bottom: -9px;
+		}
+	}
+
+	&.-menuOpen {
+		span {
+			width: 100%; 
+			height: 2px; 
+			border-radius: 0;
+			transform: rotate(-225deg);
+
+			&::before,
+			&::after {
+				width: 100%; 
+				height: 2px; 
+				border-radius: 0;
+				transition: $transition_duration;
+				transition-delay: $transition_duration * .75;
+			}
+
+			&::before {
+				top: 0;
+				transform: rotate(90deg);
+			}
+
+			&::after {
+				background-color: transparent;
+				bottom: 0;
+				transform: rotate(0deg);
+			}
+		}
+	}
+}
+
+
+
+
+// Sub menu
+.subMenu {
+	max-height: 0;
+	transition: max-height $transition_duration 0s ease-in-out;
+	overflow: hidden;
+
+	&.-subMenuOpen {
+		max-height: 1000px;
+	}
+
+	li {
+		border: none;
+
+		// adding padding to parent menu prevents it from fully collapsing, so by adding margins to first and last items we can fully collapse the menu and give vertical space when open 
+		&:first-of-type {
+			margin-top: $spacing_unit / 2;
+		}
+
+		&:last-of-type {
+			margin-bottom: $spacing_unit / 2;
+		}
+
+		@include laptop {
+			padding: 0 ($spacing_unit / 2);
+
+			&:hover > a,
+			&.focus > a {
+				background: $color__offwhite; // overrides main nav hover color 
+			}
+		}
+	}
+
+	a {
+		white-space: nowrap;
+		font-size: 16px;
+		line-height: $spacing_unit * 1.25;
+		color: $color__black;
+
+		@include laptop {
+			padding: 0 ($spacing_unit / 2);
+			color: $color__brand-md-gray;
+		}
+	}
+}
+
+// Sub menu toggle
+.subMenuToggle {
+	position: relative;
+	display: inline-block;
+	z-index: 2000;
+	height: 40px;
+	width: 40px;
+	top: 12px;
+	text-indent: 100%;
+	transition: $transition_duration;
+	// transition-delay: $transition_duration * .75;
+	cursor: pointer;
+	text-align: center;
+	color: transparent;
+	overflow: hidden;
+
+	@include laptop {
+		display: none;
+	}
+
+	&:before, 
+	&:after {
+		content: '';
+		position: absolute;
+		display: inline-block;
+		transform-origin: center;
+		height: 2px;
+		width: 12px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: $color__black;
+
+		.-subMenuOpen & {
+			background: $color__brand-blue;
+		}
+	}
+
+	&:before {
+		transition: $transition_duration;
+		// transition-delay: $transition_duration;
+		transform: translate(-50%, -50%) rotate(90deg);
+
+		.-subMenuOpen & {
+			transform: translate(-50%, -50%) rotate(0deg);
+		}
+	}
+
+	&.-subMenuOpen {
+		color: transparent;
+		overflow: hidden;
+		transform: rotate(-180deg);
+
+		@include laptop {
+			transform: rotate(0deg);
+		}
+	}
+}
+
+

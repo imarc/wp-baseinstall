@@ -1,0 +1,375 @@
+.siteFooter {
+	padding-top: $spacing_unit * 2;
+	padding-bottom: $spacing_unit * 2;
+	// border-top: 5px solid $color__brand-primary;
+
+	@include laptop {
+		padding-top: $spacing_unit * 3;
+		padding-bottom: $spacing_unit * 5;
+	}
+
+	&__container {
+		max-width: $container_max_width;
+		padding: 0 $spacing_unit;
+		margin: 0 auto;
+	}
+
+	&__grid {
+		padding: 0 ($spacing_unit * 1.5);
+		display: flex;
+		flex-direction: column;
+
+		@include laptop {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			grid-gap: $spacing_unit;
+		}
+	}
+}
+
+
+
+
+.newsletterSignup {
+	margin: 0 0 ($spacing_unit * 1.5);
+	text-align: left;
+	background: $color__offwhite;
+	padding: ($spacing_unit * 1.5) $spacing_unit;
+	border-radius: $border_radius;
+
+	@include tablet {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		// margin-bottom: $spacing_unit * 1.5;
+		padding: ($spacing_unit / 2) ($spacing_unit * 1.5);
+	}
+
+	&__copy,
+	&__form {
+		@include tablet {
+			flex: 1;
+			// border: 1px solid red;
+		}
+	}
+
+	&__title {
+		font-family: $font__bold;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -0.25px;
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit / 4;
+	}
+
+	&__text {
+		font-family: $font__main;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 22px;
+		color: $color__black;
+		margin-bottom: $spacing_unit / 2;
+
+		@include tablet {
+			margin: 0;
+			padding-right: $spacing_unit;
+		}
+	}
+}
+
+
+
+.footerMenu {
+	margin: 0 auto $spacing_unit;
+	position: relative;
+	text-align: center;
+	order: 2;
+
+	@include laptop {
+		order: unset;
+		grid-column: span 3;
+		grid-row: span 3;
+		margin: 0;
+		text-align: left;
+	}
+
+	&__heading {
+		margin-bottom: $spacing_unit;
+		font-family: $font__bold;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -0.25px;
+		color: $color__brand-dk-green;
+
+		@include laptop {
+			margin-bottom: $spacing_unit * .5;
+		}
+	}
+
+	&__menu {
+		list-style: none;
+		column-count: 1;
+		margin: 0 0 $spacing_unit;
+		padding: 0;
+		max-width: 440px;
+
+		@include phablet {
+			column-count: 2;
+			column-gap: $spacing_unit;
+		}
+
+		@include tablet {
+			column-count: 3;
+		}
+
+		@include laptop {
+			column-count: 2;
+			margin: 0;
+		}
+
+		a {
+			display: inline-block;
+			text-decoration: none;
+			white-space: nowrap;
+			font-family: $font__main;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 24px;
+			text-align: center;
+			color: $color__brand-md-gray;
+			border: none;
+		}
+
+		li {
+			margin: 0;
+
+			// prevent line breaks on items with children 
+			&.mainMenu-item {
+				padding: 0;
+				margin: 0 0 ($spacing_unit * .75);
+				break-inside: avoid;
+
+				@include laptop {
+					margin: 0 0 ($spacing_unit / 4);
+				}
+
+				&:last-of-type {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+.copyright {
+	text-align: center;
+	line-height: 1;
+	font-size: 16px;
+	order: 3;
+	color: $color__brand-md-gray;
+
+	@include laptop {
+		font-size: 14px;
+		order: unset;
+		text-align: right;
+	}
+}
+
+
+
+
+
+
+
+// MARKETO FORM 
+
+// STRUCTURE
+// mktoFormRow
+// 	mktoFieldDescriptor
+// 		mktoOffset
+// 		mktoFieldWrap
+// 			mktoLabel
+// 			mktoGutter
+// 			mktoField
+
+// $form_max_width: 100%; 
+
+// adding class from above for specificity 
+.newsletterSignup .mktoForm {
+	display: block;
+	width: 100% !important;
+	max-width: 100% !important;
+	font-family: $font__main !important;
+	padding: 0 !important;
+	// margin-bottom: 13px;
+
+	@include tablet {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+		justify-content: space-between;
+		position: relative;
+
+		// offset to account for label 
+		top: -12px;
+	}
+
+	.mktoFormRow {
+		// hide all rows that are not the email input 
+		display: none;
+		visibility: hidden;
+
+		// email is the first item, targeting that for display 
+		&:nth-of-type(1) {
+			display: block;
+			width: 100%;
+			visibility: visible;
+			margin: 0 0 ($spacing_unit / 2) 0;
+
+			@include tablet {
+				flex-grow: 1;
+				margin: 0 ($spacing_unit / 2) 0 0;
+			}
+		}
+	}
+
+	.mktoLabel {
+		display: block;
+		width: 100% !important;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+		font-size: 12px;
+		line-height: 24px;
+		color: $color__black;
+	}
+
+	.mktoFormCol {
+		float: unset !important;
+		position: relative;
+		min-height: 2em;
+		margin: 0 !important;
+	}
+
+	.mktoFieldDescriptor.mktoFormCol {
+		margin-bottom: 0 !important;
+	}
+
+	.mktoGutter,
+	.mktoOffset {
+		display: none !important;
+		visibility: hidden !important;
+	}
+
+	.mktoFieldWrap {
+		float: unset !important;
+		width: 100% !important;
+	}
+
+	span.mktoButtonWrap.mktoBlueBox {
+		margin: 0 !important;
+	}
+
+	input[type="email"] {
+		display: block; 
+		width: 100% !important;
+		color: $color__text-input;
+		border: 1px solid $color__black;
+		font-size: 16px;
+		line-height: 24px;
+		border-radius: $border_radius;
+		padding: 12px 24px;
+		box-shadow: none;
+		min-height: 50px;
+
+		@include tablet {
+			min-width: 280px;
+		}		
+
+		&::placeholder {
+			color: $color__brand-md-gray2;
+		}
+
+		&:focus {
+			color: $color__text-input-focus;
+			border-color: $color__brand-primary;
+			outline-color: $color__brand-primary;
+		}
+	}
+
+	.mktoAsterix {
+		float: unset !important;
+		color: $color__brand-red;
+		padding-left: 5px;
+		display: inline-block;
+	}
+
+	span.mktoButtonWrap.mktoBlueBox {
+		display: block;
+		margin: 0 !important;
+	}
+
+	.mktoButtonRow {
+		display: block; 
+		width: 100%;
+
+		@include tablet {
+			max-width: 160px;
+		}
+	}
+
+	.mktoButtonWrap {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		margin: 0 !important;
+
+		.mktoButton {
+			display: block;
+			width: 100%;
+			max-width: 100%;
+			text-decoration: none;
+			background: $color__brand-primary !important;
+			border: 1px solid $color__black !important;
+			color: $color__black !important;
+			padding: 0 $spacing_unit !important;
+			margin: 0 !important;
+			font-family: $font__bold !important;
+			line-height: 3rem !important;
+			font-weight: 700 !important;
+			font-size: 19px !important;
+			border-radius: $border_radius !important;
+			transition: $transition_duration !important;
+			box-shadow: none !important;
+			min-height: 50px;
+
+			text-shadow: none !important;
+
+			&:hover {
+				cursor: pointer;
+				color: $color__black !important;
+				box-shadow: 5px 5px $color__black !important;
+				transform: translate(-0.25rem,-0.25rem) !important;
+			}
+
+			&:active,
+			&:focus {
+				transition: $transition_duration / 3 !important;
+				box-shadow: 2px 2px $color__black !important;
+				transform: translate(-0.125rem,-0.125rem) !important;
+			}
+		}
+	}
+}

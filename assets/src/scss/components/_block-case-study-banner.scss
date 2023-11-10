@@ -1,0 +1,221 @@
+.caseStudyBanner {
+	position: relative;
+	padding: ($spacing_unit * 2.5) 0 ($spacing_unit * 3);
+
+	// wp block editor 
+	&.-customColor {
+		background: inherit;
+	}
+
+	// @include tablet {
+	// 	padding: ($spacing_unit * 3) 0;
+	// }
+
+	// @include tablet {
+	// 	padding: ($spacing_unit * 4) 0;
+	// }
+
+	&__heading {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		overflow: hidden;
+		// max-width: $container_max_width;
+		max-width: calc(100% - ($spacing_unit * 2));
+			margin-left: auto;
+			margin-right: auto;
+		border-radius: $border_radius;
+		background: $color__offwhite;
+		box-shadow: $box__shadow;
+		margin-bottom: $spacing_unit * 3;
+		text-align: center;
+
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			text-align: left;
+		}
+
+		@include desktop {
+			max-width: calc($container_max_width + ($spacing_unit * 3));
+		}
+	}
+
+
+
+	&__text {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex: 1;
+	}
+	
+	&__textInner {
+		width: 100%;
+		padding: ($spacing_unit * 2) ($spacing_unit * 2);
+	}
+
+	&__eyebrow {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -0.25px;
+		color: $color__brand-blue;
+		margin-bottom: $spacing_unit / 2;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__title {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 52px;
+		line-height: 56px;
+		letter-spacing: -0.5px;
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit * .75;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+
+
+	&__image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 1;
+
+		background: $color__white;
+
+		@include tablet {
+			max-width: 360px;
+		}
+
+		@include desktop {
+			max-width: 540px;
+		}
+	}
+
+	&__imageInner {
+		padding: $spacing_unit * 1.5;
+
+		@include laptop {
+			padding: $spacing_unit;
+		}
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		max-width: 340px;
+	}
+
+
+
+	&__detailRow {
+		@include laptop {
+			display: flex;
+			align-items: center;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+
+		}
+	}
+
+	&__detail {
+		@include laptop {
+			margin-right: $spacing_unit;
+		}
+
+		&:last-of-type {
+			margin: 0;
+		}
+	}
+
+	&__descriptor {
+		font-family: $font__bold;
+		font-weight: 400;
+	}
+
+
+
+	&__card {
+		// nothing fancy until tablet size 
+		*:last-child {
+			margin-bottom: 0;
+		}
+
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: $spacing_unit * 1.5;
+		}
+	}
+
+	&__cardTable {
+		flex: 1;
+		margin-bottom: $spacing_unit * 2;
+
+		@include tablet {
+			margin-bottom: 0;
+		}
+	}
+
+	&__cardHeading {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 80px;
+		line-height: 80px;
+		letter-spacing: -0.5;
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		*[class*="icon-"] {
+			line-height: 0;
+		}
+	}
+
+	&__cardSubHeading {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 28px;
+		letter-spacing: -0.5px;
+		color: $color__black;
+		margin-bottom: $spacing_unit / 2;
+
+		@include tablet {
+			margin-bottom: $spacing_unit;
+		}
+
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__cardDesc {
+		font-family: $font__main;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 26px;
+		color: $color__black;
+
+		&.-customColor {
+			color: inherit;
+		}
+	}
+}

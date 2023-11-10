@@ -1,0 +1,42 @@
+// search
+.siteSearch {
+	// background: $color__brand-yellow;
+	padding: 0;
+	width: 100%;
+
+	&__form {
+		position: relative;
+		width: 100%;
+		max-width: 520px;
+		margin: 0 auto;
+	}
+
+	&__formLabel {
+		@extend .screen-reader-text;
+	}
+
+	&__formInput {
+		border: 1px solid $color__black !important;
+		// border-right: none;
+		// border-radius: $border_radius 0px 0px $border_radius !important;
+		border-radius:  $border_radius !important;
+		margin: 0 !important;
+	}
+
+	// button
+	&__formButton {
+		flex-shrink: 0;
+		font-size: 14px !important;
+		line-height: 20px !important;
+		margin: 0 !important;
+		padding: 0 ($spacing_unit * .75) !important;
+		// border-radius: 0px $border_radius $border_radius 0px !important;
+		border-radius:  $border_radius !important;
+		// min-height: unset !important; // ignore min-height inherited from default button styles 
+
+		position: absolute;
+		right: 0.5rem;
+		top: 0.5rem;
+		bottom: 0.5rem;
+	}
+}

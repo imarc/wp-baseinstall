@@ -1,0 +1,68 @@
+// Scrollup and scroll-to-content button styles 
+// includes options for solid and outline circle buttons
+// and also a fancy mouse-shaped scroll-to-content button
+// just comment out what you don't need 
+// --------------------------------------------------
+
+
+
+// scrollup button 
+// --------------------------------------------------
+#scroll-to-top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	text-align: center;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	position: fixed;
+	z-index: 5000;
+	cursor: pointer;
+	right: $chevronWidth;
+	bottom: $chevronWidth;
+	font-size: $chevronWidth;
+	line-height: $scrollUpButtonSize * ($squareRoot * 2);
+	width: $scrollUpButtonSize * ($squareRoot * 2);
+	height: $scrollUpButtonSize * ($squareRoot * 2);
+	transition: all $transition_duration;
+	border-radius: 50%; // change to 0 to make the button square
+	padding: 0;
+	opacity: 0;
+
+	// solid button
+	background: $color__brand-primary; 
+	border: $border_width solid $color__black;
+	color: $color__black;
+
+	&:hover {
+		cursor: pointer;
+		color: $color__black;
+		box-shadow: 5px 5px $color__black;
+		transform: translate(-0.25rem,-0.25rem);
+
+	}
+
+	&:active,
+	&:focus {
+		transition: $transition_duration / 3;
+		box-shadow: 2px 2px $color__black;
+		transform: translate(-0.125rem,-0.125rem);
+	}
+
+	// chevron
+	&:before {
+		display: inline-block;
+		box-sizing: border-box;
+		border-style: solid;
+		border-width: $chevronBborderWidth $chevronBborderWidth 0 0;
+		height: $chevronWidth;
+		width: $chevronWidth;
+		top: $chevronBborderWidth;
+		content: '';
+		position: relative;
+		transform: rotate(-45deg);
+		vertical-align: top;
+	}
+}

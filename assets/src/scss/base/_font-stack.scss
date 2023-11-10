@@ -1,0 +1,29 @@
+// Neue Hass Unica across the board 
+
+@font-face {
+  font-family: "NeueHaasUnicaW1G-Bold";
+  src: url('/wp-content/themes/baseinstall/assets/fonts/font.woff2') format('woff2'), 
+  url('/wp-content/themes/baseinstall/assets/fonts/font.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'NeueHaasUnicaW1G-Heavy';
+    src: url('/wp-content/themes/baseinstall/assets/fonts/39F31D_0_0.eot');
+    src: url('/wp-content/themes/baseinstall/assets/fonts/39F31D_0_0.eot?#iefix') format('embedded-opentype'),
+    url('/wp-content/themes/baseinstall/assets/fonts/39F31D_0_0.woff2') format('woff2'),
+    url('/wp-content/themes/baseinstall/assets/fonts/39F31D_0_0.woff') format('woff'),
+    url('/wp-content/themes/baseinstall/assets/fonts/39F31D_0_0.ttf') format('truetype');
+    font-display: swap;
+}
+ 
+  
+@font-face {
+    font-family: 'NeueHaasUnicaW1G-Regular';
+    src: url('/wp-content/themes/baseinstall/assets/fonts/39F31D_1_0.eot');
+    src: url('/wp-content/themes/baseinstall/assets/fonts/39F31D_1_0.eot?#iefix') format('embedded-opentype'),
+    url('/wp-content/themes/baseinstall/assets/fonts/39F31D_1_0.woff2') format('woff2'),
+    url('/wp-content/themes/baseinstall/assets/fonts/39F31D_1_0.woff') format('woff'),
+    url('/wp-content/themes/baseinstall/assets/fonts/39F31D_1_0.ttf') format('truetype');
+    font-display: swap;
+}

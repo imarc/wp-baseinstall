@@ -1,0 +1,94 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+// input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	display: inline-block; 
+	width: 100%;
+	color: $color__text-input;
+	border: 1px solid $color__black;
+	font-size: 16px;
+	line-height: 24px;
+	border-radius: $border_radius;
+	padding: 12px 24px;
+	text-transform: none;
+	box-shadow: none;
+	margin-bottom: $spacing_unit;
+
+	&::placeholder {
+		color: $color__brand-md-gray2;
+	}
+
+	&:focus {
+		color: $color__text-input-focus;
+		border-color: $color__brand-primary;
+		outline-color: $color__brand-primary;
+	}
+}
+
+select {
+	display: block; 
+	width: 100%;
+	appearance: none;
+	color: $color__text-input;
+	border: 1px solid $color__black;
+	font-size: 16px;
+	line-height: 24px;
+	border-radius: $border_radius;
+	padding: 12px 24px;
+	text-transform: none;
+	box-shadow: none;
+	margin-bottom: $spacing_unit;
+
+	// Down Arrow Icon - SVG color can be changed by upating the hex in the <path> below - currently set to #404040
+	// You have to URL encode the data URL contents, which means converting #  to %23 like so: <path fill='%23404040' ...
+	background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24px' height='24px' viewBox='0 0 24 24'><path fill='%23555555' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+	background-position: 97% 55%;
+	background-repeat: no-repeat;
+}
+
+textarea {
+	display: block;
+	width: 100%;
+}
+
+label {
+	display: block;
+	width: 100%;
+	font-size: 12px;
+	line-height: 24px;
+	font-family: $font__headings;
+	color: $color__black;
+}
+
+// tables 
+th {
+	font-family: $font__bold;
+}
+
+th,
+td {
+	padding: $spacing_unit / 2;
+	text-align: left;
+	border-bottom: 1px solid $color__brand-lt-gray; 
+
+	&:first-child {
+		padding-left: 0; 
+	}
+
+	&:last-child {
+		padding-right: 0; 
+	}
+}
+

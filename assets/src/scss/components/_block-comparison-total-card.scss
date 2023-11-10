@@ -1,0 +1,223 @@
+.comparisonTotalCard {
+	position: relative;
+	padding: ($spacing_unit * 2) 0;
+
+	// wp block editor 
+	&.-customColor {
+		background: inherit;
+	}
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	@include laptop {
+		padding: ($spacing_unit * 4) 0;
+	}
+	
+	&__heading {
+		margin-bottom: $spacing_unit;
+
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: $spacing_unit * 2;
+		}
+
+		&.-centered {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	&__title {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 36px;
+		letter-spacing: -0.5px;
+		margin: 0 0 $spacing_unit;
+
+		&.-centered {
+			font-size: 40px;
+			line-height: 44px;
+			margin: 0 0 $spacing_unit;
+		}
+
+		@include tablet {
+			margin: 0;
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__link {
+		font-size: 18px;
+		line-height: 26px;
+	}
+
+	&__copy {
+		font-size: 18px;
+		line-height: 26px;
+		color: $color__black;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	&__chart {
+		border: 1px solid $color__black;
+		border-radius: $border_radius;
+		overflow: hidden;
+
+		box-shadow: $box__shadow;
+
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+
+
+	.-sana {
+		flex: 1;
+		border-bottom: 1px solid $color__black;
+		background: $color__white;
+
+		@include tablet {
+			border-bottom: none;
+			border-right: 1px solid $color__black;
+		}
+	}
+
+	.-others {
+		flex: 1;
+		color: $color__brand-md-gray;
+		background: $color__offwhite;
+	}
+
+
+	&__chartTable {
+		padding: $spacing_unit;
+
+		@include tablet {
+			padding: ($spacing_unit * 2) ($spacing_unit * 1.5) ($spacing_unit * 3);
+		}
+	}
+
+	// &__copayList {
+	// 	// background: red;
+	// }
+
+	&__copayTitle {
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 36px;
+		letter-spacing: -0.5px;
+		margin: 0 0 ($spacing_unit * 1.5);
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+		
+		.-others & {
+			color: $color__brand-md-gray;
+		}
+	}
+
+	&__copayListItem {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid $color__black;
+		padding: 0 0 ($spacing_unit / 2);
+		margin: 0 0 ($spacing_unit / 2);
+
+		&:last-of-type {
+			margin: 0 0 ($spacing_unit * .75);
+		}
+
+		.-others & {
+			border-color: $color__brand-md-gray2;
+		}
+	}
+
+	&__copayDescription {
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -0.25px;
+	}
+
+	&__copayAmount {
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 24px;
+		text-align: right;
+		letter-spacing: -0.5px;
+		color: $color__brand-dk-green2;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		.-others & {
+			color: $color__brand-md-gray2;
+		}
+	}
+
+	// &__checkList {
+	// 	// background: green;
+	// }
+
+	&__checkListItem {
+		font-size: 24px;
+		line-height: 24px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;
+		margin-bottom: $spacing_unit / 2;
+
+		&:last-of-type {
+			margin: 0;
+		}
+	}
+
+	&__icon {
+		display: inline-block;
+		margin-right: $spacing_unit / 2;
+	}
+
+	&__checkText {
+		display: inline-block;
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		.-others & {
+			color: $color__brand-md-gray;
+		}
+	}
+}

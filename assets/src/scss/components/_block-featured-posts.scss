@@ -1,0 +1,198 @@
+.featuredPosts {
+	position: relative;
+	text-align: left;
+	padding: ($spacing_unit * 2) 0;
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	&.-customColor {
+		background: inherit;
+	}
+
+	&__title {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 36px;
+		text-align: center;
+		letter-spacing: -0.5px;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		@include tablet {
+			margin-bottom: $spacing_unit * 2;
+		}
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+	}
+
+	&__inner {
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 0;
+			margin-left: -$spacing_unit / 2;
+			margin-right: -$spacing_unit / 2;
+		}
+
+		@include laptop {
+			flex-wrap: nowrap;
+			gap: $spacing_unit / 2;
+
+			> * {
+				flex-basis: 1;
+			}
+		}
+	}
+
+	&__block {
+		text-align: left;
+		position: relative;
+		box-sizing: border-box;
+		width: 100%;
+		font-family: $font__main;
+		margin-bottom: $spacing_unit;
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			padding: 0 ($spacing_unit / 2);
+			max-width: 50%;
+		}
+
+		@include laptop {
+			margin: 0;
+		}
+	}
+
+	&__blockBorder {
+		position: relative;
+		flex-grow: 1;
+		padding: ($spacing_unit * .6) ($spacing_unit * .6) ($spacing_unit * 1.1);
+		transition: $transition_duration;
+		border-radius: $border_radius;
+		overflow: hidden;
+		border: 1px solid transparent;
+		background: $color__offwhite;
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+		}
+
+		// if link is present, add hover effect 
+		&.-hasLink {
+			&:hover {
+				cursor: pointer;
+				background: $color__offwhite;
+				border-color: $color__black;
+				box-shadow: $box__shadow;
+			}
+		}
+	}
+
+	&__blockThumb {
+		margin-bottom: $spacing_unit * .75;
+	}
+
+	&__blockThumbImg {
+		display: block;
+		margin: 0 auto;
+		border: 1px solid $color__brand-lt-gray2;
+	}
+
+	&__blockTextWrap {
+	// 	max-width: 240px;
+	// 	margin: 0 auto ($spacing_unit / 2);
+		margin-bottom: $spacing_unit / 2;
+
+		@include tablet {
+			flex-grow: 1;
+		}
+	}
+
+	&__blockEyebrow {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+		margin-bottom: $spacing_unit / 3;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		a {
+			color: inherit;
+			border: none;
+		}
+	}
+
+	&__blockTitle {
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit / 2;
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 28px;
+		letter-spacing: -0.5px;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__blockText {
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 1.5em;
+		margin: 0;
+		transition: color 0.3s ease-out;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__blockLink {
+		font-size: 16px;
+		line-height: 24px;
+		color: $color__brand-blue;
+		transition: $transition_duration;
+		text-decoration: none;
+		border: none;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		&::before {
+			content: '';
+			cursor: pointer;
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+
+}

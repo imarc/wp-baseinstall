@@ -1,0 +1,212 @@
+// Hero block styles
+.hero {
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	background: $color__offwhite;
+	padding: ($spacing_unit * 2) 0;
+
+	// full background image 
+	@include bgImage;
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	// if featured hero option is selected
+	&.-featured {
+		background: $color__white;
+		padding: 0; // keeps image on bottom of homepage hero 
+	}
+
+	&.-homepage {
+		@include tablet {
+			padding: ($spacing_unit * 4) 0;
+		}
+		@include desktop {
+			padding: ($spacing_unit * 8) 0;
+		}
+	}
+
+	// if centerd card  hero option is selected
+	&.-centeredCard {
+		@include tablet {
+			padding: ($spacing_unit * 5) 0;
+		}
+	}
+
+	&__cta {
+		position: relative;
+		z-index: 3;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: $container_max_width;
+		padding: 0 $spacing_unit;
+		margin: $spacing_unit auto 0;
+
+		@include phablet {
+			margin: ($spacing_unit * 1.5) auto 0;
+		}
+
+		@include tablet {
+			margin: 0 auto;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__title {
+		margin: 0 auto 1rem;
+		// font-size: 32px;
+		font-size: 42px;
+		line-height: 1.1;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		@include tablet {
+			max-width: 100%;
+			margin: 0 0 1rem;
+			// font-size: 52px;
+
+			// if centered card option selected 
+			.-centeredCard & {
+				max-width: 540px;
+			}
+		}
+
+		@include laptop {
+			font-size: 54px;
+		}
+	}
+
+	&__text {
+		margin: 0 auto $spacing_unit;
+
+		@include tablet {
+			text-align: left;
+			padding-right: $spacing_unit * 2;
+			margin: 0;
+			flex: 1;
+		}
+
+		.-homepage & {
+			max-width: 560px;
+		}
+
+		.-featured & {
+			max-width: 540px;
+		}
+
+		// if centered card option selected 
+		&.-centeredCard {
+			background: #fff;
+			text-align: center;
+			padding: $spacing_unit * .5;
+			margin: 0 auto;
+
+			@include tablet {
+				padding:  $spacing_unit ($spacing_unit * 3);
+				flex: unset;
+			}
+
+			@include desktop {
+				padding:  $spacing_unit ($spacing_unit * 4);
+				flex: unset;
+			}
+
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__copy {
+		margin: 0 auto 1.5em;
+		letter-spacing: -.5px;
+
+		@include tablet {
+			letter-spacing: unset;
+
+			.-homepage & {
+				font-size: 21px;
+			}
+		}
+
+		@include laptop {
+			margin: 0 0 3rem;
+
+			// if centered card option selected 
+			.-centeredCard & {
+				max-width: 540px;
+			}
+		}
+	}
+
+	&__image {
+		flex-shrink: 0;
+
+		@include tablet {
+			flex: 1;
+		}
+
+		img {
+			display: block;
+			width: auto;
+			max-width: 100%;
+			min-height: 200px;
+			max-height: 500px;
+			margin: 0 auto;
+
+			@include tablet {
+				.-featured & {
+					max-height: 550px;
+					margin: ($spacing_unit * 2) 0 0;
+				}
+			}
+		}
+	}
+
+	// abstract shape behind the featured image / portrait 
+	&__shape {
+		flex-shrink: 0;
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		right: 0;
+		bottom: -40%;
+		width: auto;
+		height: 95%;
+
+		@include tablet {
+			height: 100%;
+			top: 0;
+			left: auto;
+			max-width: 50%;
+		}
+
+		@include hdtv {
+			right: -80px;
+			height: 150%;
+		}
+
+		img {
+			display: block;
+			margin: 0;
+			transform: rotate(90deg);
+			transform-origin: center;
+			width: 100%;
+			height: 100%;
+
+			@include tablet {
+				transform: none;
+				height: 100%;
+			}
+		}
+	}
+}

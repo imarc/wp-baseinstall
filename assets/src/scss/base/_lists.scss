@@ -1,0 +1,53 @@
+ul,
+ol {
+	margin: 0 0 1.5rem 1rem;
+	padding: 0; 
+	position: relative;
+	z-index: 1;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li {
+	margin-bottom: 1rem;
+
+	// // this gives all ul elements in the body content yellow bullets 
+	// .textAndImage &,
+	// .wysiwygText &, 
+	// .accordionRows &,
+	// .verticalTabs__tabPane &,
+	// .singlePost__entryContent & {
+	// 	list-style: none;
+
+	// 	&:before{ 
+	// 		content:'\2022'; 
+	// 		font-size: 48px;
+	// 		vertical-align: middle;
+	// 		line-height: 0;
+	// 		position: relative;
+	// 		display: inline-block;
+	// 		margin: 0 10px 0 -15px;
+	// 		color: $color__brand-yellow;
+	// 	}
+	// }
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}

@@ -1,0 +1,28 @@
+// a:not(.siteFooter a, .siteHeader a, .button, [class*="__blockLink"]),
+a {
+	color: $color__brand-blue;
+	text-decoration: none;
+	border-bottom: 1px solid $color__brand-blue;
+
+	&:visited {
+		color: $color__brand-blue;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: darken($color__brand-blue, 15%);
+		border-color: darken($color__brand-blue, 15%);
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+		cursor: pointer;
+	}
+}

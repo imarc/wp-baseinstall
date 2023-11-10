@@ -1,0 +1,166 @@
+// LOGIN PAGE STYLES
+// Uses the same variables and mixins as main stylesheet for consistency
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+// Body class for the login page
+.login  {
+	padding-top: 8%;
+	box-sizing: border-box;
+	background: url('/wp-content/themes/baseinstall/assets/dist/img/hero.jpg') center / cover no-repeat;
+
+	// Container of the login form 
+	#login { 
+		box-sizing: border-box;
+		margin-bottom: 2rem;
+		width: 80%; 
+		max-width: $width_mobile;
+		background: $color__offwhite;
+		padding: $spacing_unit * 1.5;
+		box-shadow: 0 0 $border_radius 0px rgba(0, 0, 0, 0.2);
+		border-radius: $border_radius;
+	}
+ 
+	// Login page logo
+	h1 a {
+		background-image: url('/wp-content/themes/baseinstall/assets/dist/img/logo.svg');  
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 100%;
+		max-width: 300px;
+		height: 76px;
+		margin: 0 auto ($spacing_unit * 1.5);
+		padding: 0;
+		color: #999;
+		line-height: 1.3em;
+		text-indent: -9999px;
+		text-decoration: none;
+		font-weight: normal;
+		overflow: hidden;
+		outline: none;
+		display: block;
+	}
+
+	// Login form
+	form {
+		margin-top: 0;
+		margin-left: 0;
+		padding: 0;
+		font-weight: 400;
+		overflow: hidden;
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		font-family: $font__main;
+
+		label {
+			padding: 0;
+			font-family: $font__bold;
+			color: $color__black;
+			font-weight: 700;
+		}
+
+		// Login form text areas
+		#user_login,
+		#user_pass {
+			width: 100%;
+			padding: 6px 20px; // The 6px vertically centers text on FF, ignored by Webkit
+			border-color: $color__black;
+			border-width: $border_width;
+			border-radius: $border_radius;
+			margin: ($spacing_unit * 0.25) 0 $spacing_unit;
+			box-shadow: none;
+
+			&:focus {
+				border-color: $color__brand-primary;
+				box-shadow: none;
+				outline: 0;
+			}
+		}
+
+		// Remember me checkbox
+		.forgetmenot {
+			line-height: $font__line-height-forms;
+			padding: 0;
+
+			label {
+				padding: 0;
+			}
+
+			// checkbox input
+			input {
+				border: 1px solid $color__black;
+				// border-radius: $border_radius;
+			}
+		}
+	}
+
+	// Login button
+	#wp-submit {
+		text-shadow: none;
+		box-shadow: none;
+		color: $color__black;
+		background: $color__brand-primary;
+		border-color: $color__black;
+		border-width: $border_width;
+		border-radius: $border_radius;
+		padding: 0 ($spacing_unit * 1.5);
+		transition: $transition_duration;
+		line-height: 44px;
+		font-size: 19px;
+		font-weight: 700;
+
+		&:focus,
+		&:hover {
+			color: $color__black;
+			background: darken($color__brand-primary, 10%);
+			border-color: darken($color__brand-primary, 10%);
+		}
+	}
+
+	// Password reset and home links below form
+	#nav,
+	#backtoblog {
+		padding: 0 5px;
+
+		a {
+			text-decoration: none;
+			transition: $transition_duration;
+			color: $color__brand-md-gray;
+			font-size: 16px;
+
+			&:hover {
+				color: darken($color__brand-md-gray, 10%);
+			}
+		}
+	}
+
+	// Privacy policy link below form
+	.privacy-policy-page-link {
+		text-align: left;
+		width: 100%;
+		margin: 0;
+		padding: 0 5px;
+		font-size: 16px;
+
+		a {
+			color: $color__brand-blue;
+		}
+	}
+}
+
+// Overrides Chrome/Safari autofill background and fill colors
+@-webkit-keyframes autofill {
+	to {
+		color: $color__brand-dk-gray;
+		background: transparent;
+	}
+}
+
+input:-webkit-autofill {
+	-webkit-animation-name: autofill;
+	-webkit-animation-fill-mode: both;
+}

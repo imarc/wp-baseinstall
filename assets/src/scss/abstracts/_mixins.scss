@@ -1,0 +1,60 @@
+
+// Media queries
+// @include mobile { selector: style; }
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin mobile    	{ @media (min-width: #{$width_mobile})    { @content; } }
+@mixin phablet   	{ @media (min-width: #{$width_phablet})   { @content; } }
+@mixin tablet    	{ @media (min-width: #{$width_tablet})    { @content; } }
+@mixin widetablet 	{ @media (min-width: #{$width_widetab})   { @content; } }
+@mixin laptop    	{ @media (min-width: #{$width_laptop})    { @content; } }
+@mixin desktop   	{ @media (min-width: #{$width_desktop})   { @content; } }
+@mixin hdtv      	{ @media (min-width: #{$width_hdtv})      { @content; } }
+@mixin wpadmin	 	{ @media (min-width: #{$wordpress_admin}) { @content; } }
+@mixin nomobile  	{ @media (max-width: #{$hidden_mobile})   { @content; } }
+@mixin nophablet 	{ @media (max-width: #{$hidden_phablet})  { @content; } }
+
+
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+// Make background images fill div, marked !important to override WordPress featured image placement
+// @include bgImage;
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+@mixin bgImage() {
+	background-repeat: no-repeat !important; 
+	background-position: center !important;
+	background-size: cover !important;
+}
+
+
+// // Column width with margin
+// @mixin column-width($numberColumns: 3) {
+// 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+// }
+
+
+
+// // Animation keyframes used for bouncing arrow on links
+// @keyframes bounceRight {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   50% {
+//     transform: translateX(10px);
+//   }
+//   100% {
+//     transform: translateX(0);
+//   }
+// }
+
+// // Globally enable arrow bounce
+// .link-arrow {
+// 	display: inline-block;
+// }

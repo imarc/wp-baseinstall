@@ -1,0 +1,339 @@
+.getQuote {
+	position: relative;
+	// background: url('/wp-content/themes/baseinstall/assets/dist/img/hero2.jpg') center / cover no-repeat;
+	background-image: url('/wp-content/themes/baseinstall/assets/dist/img/Get-a-quote-form-BG.jpg') ;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
+
+	@include tablet {
+		background-position: right center;
+	}
+
+	&__text {
+		text-align: left;
+	}
+
+	&__wrapper {
+		position: relative;
+		background: transparent;
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+	}
+
+	&__containerInner {
+		background: transparent;
+		padding: ($spacing_unit * 2) 0;
+
+		@include tablet {
+			padding: ($spacing_unit * 3.2) ($spacing_unit * 2) ($spacing_unit * 3.2) 0;
+			max-width: 58%;
+
+			// layout shift if foreground image present 
+			&.-foregroundImg {
+				max-width: 640px;
+
+				.marketoForm {
+					max-width: 380px;
+				}
+			}
+		}
+
+		@include laptop {
+			padding-right: $spacing_unit * 4.5;
+			max-width: 58%;
+
+			// layout shift if foreground image present 
+			&.-foregroundImg {
+				padding: ($spacing_unit * 3.2) ($spacing_unit * 2)  ($spacing_unit * 2) 0;
+
+				.marketoForm {
+					max-width: 440px;
+				}
+			}
+
+		}
+	}
+
+	&__eyebrow {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__title {
+		font-style: normal;
+		font-weight: 800;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__copy {
+		margin-bottom: $spacing_unit;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+
+	&__image {
+		position: absolute;
+		display: none;
+		visibiilty: hidden;
+		@include tablet {
+			display: block;
+			visibiilty: visible;
+			width: 50%;
+			right: 10%;
+			bottom: 0;
+
+			// layout shift if foreground image present 
+			&.-foregroundImg {
+				right: -50px;
+			}
+		}
+	}
+
+
+
+	&__stats {
+		background-image: url('/wp-content/themes/baseinstall/assets/dist/img/Get-a-quote-form-BG.png');
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
+		background-position: top right !important;
+
+		padding: ($spacing_unit * 2) 0;
+
+		@include tablet {
+			position: absolute;
+			width: 45%;
+			right: 0%;
+			top: 0;
+			height: 100%;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-image: none;
+		}
+	}
+
+	&__statsContainer {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+
+	}
+
+	&__statsText {
+		text-align: center;
+		letter-spacing: -0.5px;
+		text-transform: uppercase;
+		margin: 0 0 ($spacing_unit * 1.25);
+		
+		@include tablet {
+			margin-bottom: $spacing_unit * 3;
+		}
+
+		&:last-of-type {
+			margin: 0;
+		}
+	}
+
+	&__statTitle {
+		font-size: 20px;
+		line-height: 24px;
+		color: $color__black;
+		margin-bottom: $spacing_unit * .5;
+
+		@include tablet {
+			margin-bottom: $spacing_unit;
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+
+	&__imageImg {
+		display: block; 
+		width: 100%;
+		max-width: 500px;
+		margin: 0;
+	}
+
+	&__statStat {
+		font-size: 52px;
+		line-height: 56px; 
+		color: $color__brand-dk-green;
+		font-family: $font__headings;
+		margin: 0;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+
+
+
+	// styles specific to Marketo form 
+	.marketoForm {
+		color: $color__white;
+		padding: 0;
+
+		.mktoForm {
+			width: 100% !important;
+
+			.mktoLabel {
+				display: block;
+				width: 100% !important;
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: flex-end;
+				font-size: 12px;
+				line-height: 24px;
+				color: $color__black;
+			}
+
+			.mktoFormCol {
+				float: unset !important;
+				position: relative;
+				min-height: 2em;
+			}
+
+			.mktoFieldDescriptor.mktoFormCol {
+				margin-bottom: $spacing_unit / 2 !important;
+			}
+
+			.mktoGutter,
+			.mktoOffset {
+				display: none !important;
+				visibility: hidden !important;
+			}
+
+			.mktoFieldWrap {
+				float: unset !important;
+				width: 100% !important;
+			}
+
+			span.mktoButtonWrap.mktoBlueBox {
+				margin: 0 !important;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="url"],
+			input[type="password"],
+			input[type="search"],
+			input[type="number"],
+			input[type="tel"],
+			input[type="range"],
+			input[type="date"],
+			input[type="month"],
+			input[type="week"],
+			input[type="time"],
+			input[type="datetime"],
+			input[type="datetime-local"],
+			input[type="color"],
+			textarea {
+				display: block; 
+				width: 100% !important;
+				color: $color__text-input;
+				border: 1px solid $color__black;
+				font-size: 16px;
+				line-height: 24px;
+				border-radius: $border_radius;
+				padding: 12px 24px;
+				box-shadow: none;
+				min-height: 50px;
+
+				&::placeholder {
+					color: $color__brand-md-gray2;
+				}
+
+				&:focus {
+					color: $color__text-input-focus;
+					border-color: $color__brand-primary;
+					outline-color: $color__brand-primary;
+				}
+			}
+
+			select {
+				display: block; 
+				width: 100% !important;
+				max-width: 100% !important;
+				color: $color__text-input;
+				border: 1px solid $color__black;
+				font-size: 16px;
+				line-height: 24px;
+				border-radius: $border_radius;
+				padding: 12px 24px;
+				text-transform: none;
+				box-shadow: none;
+			}
+
+			textarea {
+				display: block; 
+				width: 100% !important;
+				border: 1px solid $color__black;
+				box-shadow: none;
+			}
+
+
+			.mktoAsterix {
+				float: unset !important;
+				color: $color__brand-red;
+				padding-left: 5px;
+				display: inline-block;
+			}
+
+			span.mktoButtonWrap.mktoBlueBox {
+				display: block;
+				margin: ($spacing_unit * .75) 0 0 !important;
+			}
+
+			.mktoButtonWrap.mktoBlueBox button.mktoButton {
+				@extend .button;
+			}
+
+		}
+
+	}
+}
+
+
+
+
+
+
+

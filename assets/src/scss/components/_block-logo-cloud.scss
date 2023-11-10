@@ -1,0 +1,106 @@
+// Logo cloud styles
+.logoCloud {
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	padding: ($spacing_unit * 2) 0;
+
+	@include laptop {
+		text-align: left;
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+
+		&.-singleLogo {
+			display: flex; 
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: $spacing_unit;
+
+			@include laptop {
+				flex-direction: row;
+				gap: $spacing_unit * 1.5;
+			}
+		}
+	}
+
+	&__title {
+		margin-bottom: $spacing_unit * 1.5;
+
+		&.-customColor {
+			color: inherit;
+		}
+
+		.-singleLogo & {
+			margin: 0;
+			font-size: 28px;
+		}
+	}
+
+	&__wrap {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+
+		@include mobile {
+			flex-direction: row;
+		}
+
+		@include laptop {
+			justify-content: space-between;
+		}
+	}
+
+	&__logo {
+		margin: $spacing_unit / 2;
+
+		flex: 1;
+
+		@include tablet {
+			flex: unset;
+		}
+
+		@include laptop {
+			margin: 0;
+		}
+
+		.-singleLogo & {
+			margin: $spacing_unit / 2;
+		}
+
+		img {
+			display: block;
+			width: auto;
+			height: auto;
+			margin: 0 auto $spacing_unit;
+			max-width: 200px;
+			max-height: 90px;
+
+			@include mobile {
+				margin: 0 auto;
+				max-width: 140px;
+				max-height: 70px;
+			}
+ 
+			@include phablet {
+				max-width: 160px;
+				max-height: 90px;
+			}
+
+			.-singleLogo & {
+				max-width: 280px;
+				max-height: 90px;
+			}
+		}
+	}
+}

@@ -1,0 +1,763 @@
+.planSuggestionModule {
+	position: relative;
+	z-index: 1;
+	padding: ($spacing_unit * 2) 0;
+	scroll-margin: 78px;
+
+	&__wrap {
+		border-radius: $border_radius;
+		overflow: hidden;
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0;
+
+		@include tablet {
+			padding: 0 $spacing_unit;
+		}
+	}
+
+	&__intro {
+		text-align: center;
+	}
+
+	&__module {
+		position: relative;
+		background: $color__offwhite; 
+		padding: $spacing_unit 50px ($spacing_unit * 1.5); 
+
+		@include phablet {
+			padding: 50px; 
+		}
+
+		@include widetablet {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			text-align: inherit;
+			flex-direction: row;
+		}
+	}
+
+	&__text {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		padding: ($spacing_unit * 1.5) 0 0;
+		margin-bottom: $spacing_unit * 3;
+		
+		@include widetablet {
+			padding-top: 0;
+			padding-left: 0;
+			// padding-right: $spacing_unit * 2;
+			margin-bottom: 0;
+			max-width: 380px;
+		}
+
+		@include laptop {
+			padding-left: $spacing_unit * 1.5;
+			max-width: 480px;
+			// padding-right: $spacing_unit * 3;
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__heading {
+		font-family: $font__bold;
+		font-size: 18px;
+		letter-spacing: -0.5px;
+		margin-bottom: $spacing_unit * .5;
+
+		@include tablet {
+			font-size: 24px;
+		}
+
+		@include laptop {
+			.-checkbox & {
+				margin-bottom: 0;
+			}
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		@include laptop {
+			width: 26ch;
+		}
+	}
+
+	&__copy {
+		font-size: 12px;
+		line-height: 16px;
+		margin-bottom: $spacing_unit * .75;
+	}
+
+	&__cardWrap {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		width: 100%;
+
+		@include widetablet {
+			max-width: 360px;
+		}
+
+		@include laptop {
+			max-width: 440px;
+		}
+	}
+
+
+	// message for null state 
+	&__null {
+		position: absolute; 
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 80px;
+		z-index: 9;
+		// padding: $spacing_unit;
+
+		&-inner {
+			position: absolute; 
+			top: 30px;
+			left: 30px;
+			right: 30px;
+			bottom: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: $spacing_unit * .75;
+			background: rgba($color__white, .3);
+		}
+
+		&-message {
+			display: flex;
+			flex-direction: column;
+			font-size: 18px;
+			background: #FFF3E5;
+			border: 1px solid $color__brand-warning;
+			border-radius: $border_radius;
+			padding: ($spacing_unit * 1.25) ($spacing_unit * 1.5);
+		}
+
+		display: none;
+		visibility: hidden; 
+		opacity: 0;
+		transition: opacity $transition_duration;
+
+		&[disabled=true] {
+			display: block;
+			visibility: visible; 
+			opacity: 1;
+		}
+
+		svg {
+			display: block;
+			margin: 0 auto ($spacing_unit * .5);
+			height: 44px;
+			width: 44px;
+		}
+
+		path {
+			fill: $color__brand-warning;
+		}
+
+	}
+
+	&__card {
+		position: relative;
+		background: $color__white;
+		border: 1px solid $color__text-main;
+		border-radius: $border_radius;
+		box-shadow: $box__shadow;
+		text-align: center;
+		padding: ($spacing_unit * 2) $spacing_unit;
+		margin-bottom: $spacing_unit * 1.5;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		@include tablet {
+			min-height: 500px;
+		}
+
+		@include laptop {
+			padding: ($spacing_unit * 1.75);
+			min-height: 580px;
+		}
+	}
+
+	&__cardInner {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing_unit * 2;
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__cardContent {
+		font-size: 20px;
+		line-height: 24px;
+		margin: 0;
+		transition: opacity $transition_duration;
+
+		// disabled state makes inner text transparent 
+		&[disabled=true] {
+			pointer-events:none;
+			opacity: 0;
+		}
+	}
+
+	&__cardIntro {
+		margin-bottom: $spacing_unit * .5;
+	}
+
+	&__planName {
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit * .75;
+		letter-spacing: -0.5px;
+		line-height: 1.2;
+		font-weight: 400;
+		position: relative;
+		z-index: 1;
+		font-family: $font__headings;
+		font-size: 32px;
+
+		@include tablet {
+			font-size: 52px;
+		}
+	}
+
+	&__planType {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 24px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+		border-top: 1px solid $color__brand-lt-gray2;
+		border-bottom: 1px solid $color__brand-lt-gray2;
+		padding: ($spacing_unit / 3) 0;
+		margin-bottom: $spacing_unit;
+	}
+
+	&__planSubType {
+		font-family: $font__main;
+		font-weight: 400;
+		font-size: 14px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+		margin-bottom: 0;
+	}
+
+	&__planStats {
+		margin-bottom: $spacing_unit;
+	}
+
+	&__planStats-value {
+		color: $color__brand-blue;
+		font-family: $font__bold;
+		font-size: 24px;
+		margin-bottom: $spacing_unit * .5;
+
+		@include tablet {
+			font-size: 32px;
+		}
+	}
+
+
+	&__planQuoteCopy {
+		font-size: 16px;
+		margin-bottom: $spacing_unit * .5;
+	}
+
+	&__planQuoteButton {
+		margin-bottom: 0;
+	}
+
+	// wrapper div around checkbox and slider inputs 
+	&__input {
+		margin-bottom: $spacing_unit * 1.5;
+		
+		transition: opacity $transition_duration;
+
+		@include laptop {
+			margin-bottom: $spacing_unit * 2;
+
+			&.-checkbox {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+
+		&[disabled=true] {
+			pointer-events:none;
+			opacity: .3;
+		}
+	}
+
+	// yellow section at the bottom 
+	&__detail {
+		position: relative;
+		background: $color__brand-yellow;
+
+		// this is the section that changes height on toggle 
+		max-height: 0;
+		// overflow: hidden;
+		transition: max-height ($transition_duration * 2) ease-in-out;
+
+		&[aria-expanded=true] {
+			max-height: 1000px;
+
+			// toggling visibility of caret 
+			.arrow-up {
+				opacity: 1;
+				top: -20px;
+			}
+		}
+	}
+
+	&__toggle {
+		border: none;
+		background: transparent;
+		font-size: 16px;
+		line-height: 24px;
+		color: $color__brand-blue;
+	}
+
+	&__toggleIcon {
+		display: inline-block;
+		transition: .3s;
+
+		&[aria-expanded=true] {
+			transform: rotate(-180deg);
+		}
+	}
+
+	&__detailRow {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: $spacing_unit ($spacing_unit * .5) ($spacing_unit * 1.5);
+
+		@include laptop {
+			padding: $spacing_unit ($spacing_unit * 1.5);
+		}
+	}
+
+	// individual data cards within collapsing yellow block 
+	&__detailCard {	
+		position: relative;
+		font-size: 20px;
+		letter-spacing: -0.5px;
+		line-height: 1.2;
+		font-weight: 400;
+		z-index: 1;
+		text-align: center;
+		width: 100%; 
+		padding: $spacing_unit * .5;
+
+		@include phablet {
+			width: 50%;
+			padding: ($spacing_unit * .8) ($spacing_unit * .5);
+		}
+
+		@include tablet {
+			width: 25%;
+		}
+
+		&-title {
+			color: $color__brand-dk-green;
+			font-family: $font__bold;
+			margin: 0 0 ($spacing_unit * .4);
+		}
+
+		&-detail {
+			font-family: $font__main;
+			color: $color__text-main;
+
+			[class*="icon-"] {
+				background: $color__white;
+				border-radius: 50%;
+				font-size: 32px;
+			}
+		}
+
+		// Reordering middle items to match 
+		// differing mobile and desktop layouts 
+		&.-order1 {
+			order: 1;
+		}
+		&.-order2 {
+			order: 2;
+		}
+		&.-order3 {
+			order: 5;
+			@include tablet {
+				order: 3;
+			}
+		}
+		&.-order4 {
+			order: 6;
+			@include tablet {
+				order: 4;
+			}
+		}
+		&.-order5 {
+			order: 3;
+			@include tablet {
+				order: 5;
+			}
+		}
+		&.-order6 {
+			order: 4;
+			@include tablet {
+				order: 6;
+			}
+		}
+		&.-order7 {
+			order: 7;
+		}
+		&.-order8 {
+			order: 8;
+		}
+		// End reordering to match comp 
+	}
+}
+
+
+
+
+
+// arrow that pops up when plan details are open 
+.arrow-up {
+	width: 40px;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid $color__brand-yellow;
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	opacity: 0;
+	top: 0;
+	transition: $transition_duration ease-in-out;
+
+	@include widetablet {
+		left: 75%;
+	}
+}
+
+
+
+
+
+
+// Checkbox styles 
+.checkBox {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	flex-shrink: 0;
+	// margin-bottom: $spacing_unit * 1.5;
+
+	// @include laptop {
+	// 	margin-bottom: $spacing_unit * 2;
+	// }
+
+	&__input {
+		position: relative;
+		// margin-right: $spacing_unit;
+	}
+
+	&__value {
+		position: absolute;
+		display: inline-block;
+		cursor: pointer;
+		opacity: 0;
+		right: 3px;
+		top: 0;
+		bottom: 0;
+		height: 22px;
+	}
+
+	&__label {
+		display: inline-block;
+		cursor: pointer;
+		position: relative;
+		margin: 0;
+		height: 22px;
+		font-family: $font__main;
+
+		span {
+			position: relative;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 22px;
+			height: 14px;
+			bottom: 2px;
+		}
+	}
+
+	// custom checkbox pseudo element 
+	&__value + &__label:after {
+		position: relative;
+		font-family: 'Sana-Icons';
+		// content: '✔';
+		display: inline-block;
+		content: $icon-checkmark; 
+		background: $color__white;
+		border: 1px solid $color__black;
+		border-radius: 2px;
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		font-size: 18px;
+		line-height: 18px;
+		padding: 1px 0;
+		margin-left: 10px;
+		text-align: center;
+		color: transparent;
+	}
+
+	&__value:checked + &__label:after {
+		background: $color__brand-yellow;
+		color: $color__black;
+	}
+}
+
+
+
+
+
+// Range slider styles 
+.rangeSlider {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	height: $slider-height;
+
+	&_input {
+		position: relative;
+		appearance: none;
+		background: transparent;
+		width: 100%;
+		border-radius: 999px;
+		z-index: 0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			width: var(--ProgressPercent, 100%);
+			height: 100%;
+			background: $color__brand-yellow;
+			pointer-events: none;
+			border-radius: 999px;
+			z-index: 1;
+		}
+
+		&::-moz-range-progress {
+			content: "";
+			position: absolute;
+			width: var(--ProgressPercent, 100%);
+			height: 100%;
+			background: $color__brand-yellow;
+			pointer-events: none;
+			border-radius: 999px;
+			z-index: 1;
+		}
+
+		// Handle (webkit)
+		&::-webkit-slider-thumb {
+			position: relative;
+			top: 50%;
+			transform: translate(0, -50%);
+			appearance: none;
+			width: $slider-handle-size;
+			height: $slider-handle-size;
+			border-radius: $slider-handle-border-radius;
+			border: 1px solid $color__black;
+			background: $color__white;
+			cursor: pointer;
+			z-index: 99;
+		}
+
+		// Handle (moz)
+		&::-moz-range-thumb {
+			position: relative;
+			appearance: none;
+			width: $slider-handle-size;
+			height: $slider-handle-size;
+			border-radius: $slider-handle-border-radius;
+			border: 1px solid $color__black;
+			background: $color__white;
+			cursor: pointer;
+			z-index: 99;
+		}
+
+		// Track (webkit)
+		&::-webkit-slider-runnable-track {
+			appearance: none;
+			position: relative;
+			border: 1px solid $color__black;
+			height: $slider-track-height;
+			border-radius: $slider-track-border-radius;
+			width: 100%;
+			cursor: pointer;
+			background: transparent;
+			z-index: 10;
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+
+		// Track (moz)
+		&::-moz-range-track {
+			appearance: none;
+			position: relative;
+			border: 1px solid $color__black;
+			height: $slider-track-height;
+			border-radius: $slider-track-border-radius;
+			width: 100%;
+			cursor: pointer;
+			background: transparent;
+			z-index: 10;
+		}
+	}
+
+	&_dots,
+	&_values {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&_values {
+		margin-bottom: 0;
+	}
+
+	&_value {  
+		position: relative;
+		font-size: 14px;
+		transition: $transition_duration;
+		text-align: center;
+		position: relative; 
+		transform: scale(1);
+		opacity: 0;
+		// width: 20px;
+		width: 0;
+
+		&.-active {
+			opacity: 1;
+			font-family: $font__bold;
+			color: $color__brand-blue;
+			transform: scale(2.2);
+			transform-origin: 50% 0;
+			width: auto;
+			background: rgba($color__offwhite, .6); 
+			z-index: 5;
+		}
+
+		.-coinsurance &,
+		&:first-of-type,
+		&:last-of-type {
+			opacity: 1;
+			width: 20px;
+		}
+
+		&:last-of-type {
+			text-align: right;
+		}
+
+		&:last-of-type {
+			width: 40px;
+		}
+	}
+
+	&_dots {
+		position: absolute;
+		pointer-events: none;
+		left: 0;
+		right: 0;
+		top: 50%;
+		transform: translate(0, -50%);
+	}
+
+	&_dot {
+		position: relative;
+		height: 10px;
+		width: 10px;
+		border-radius: 50%;
+		border: 1px solid $color__black;
+		background: white;
+		opacity: 0;
+
+		.-coinsurance &,
+		&:first-of-type,
+		&:last-of-type {
+			opacity: 1;
+		}
+		
+		&:last-of-type {
+			right: -1px;
+		}
+
+		.-deductible & {
+			&:nth-of-type(6),
+			&:nth-of-type(10),
+			&:nth-of-type(14) {
+				opacity: 1;
+			}
+		}
+
+		&.-active {
+			background: $color__brand-yellow;
+		}
+
+		&.-current {
+			opacity:0 !important;
+		}
+	}
+}
+
+
+
+
+
+// // stopping LastPass from populating 
+// [data-lastpass-icon-root="true"] {
+// 	display: none;
+// 	visility: hidden;
+// }
+
+// // hide test outputs for now 
+// input.checkBox__value-output, 
+// input.rangeSlider_value-output {
+// 	border-color: red;
+// 	display: none;
+// }
+
+

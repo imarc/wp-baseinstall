@@ -1,0 +1,113 @@
+.siteHeader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 100;
+	overflow: visible;
+	background-color: $color__white;
+	border-bottom: 1px solid transparent;
+	transition: $transition_duration;
+
+	&.-scrolled {
+		border-bottom: 1px solid $color__brand-lt-gray;
+		box-shadow: $box__shadow;
+	}
+
+	// shift nav for logged in users to accommodate WP Admin bar 
+	.admin-bar & {
+		top: $wordpress_admin_default; // WP Admin Bar height
+
+		@include wpadmin {
+			top: $wordpress_admin_full;
+		}
+	}
+
+	&__branding {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		// max-width: 220px;
+		// max-width: 120px;
+		max-width: max-content;
+
+		line-height: $header_height;
+
+		a {
+			display: block;
+			border: none;
+		}
+
+		img {
+			display: block;
+			vertical-align: middle;
+			width: 100px;
+			height: auto;
+			padding: 0;
+			margin: 0;
+
+			@include laptop {
+				width: 118px;
+			}
+		}
+	}
+
+	&__title {
+		font-family: inherit;
+		line-height: $header_height;
+
+		a {
+			text-decoration: none;
+			border: none;
+		}
+	}
+
+	&__navbar {
+		position: relative;
+		z-index: initial;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		// max-width: $container_max_width;
+		max-width: $nav_max_width;
+		padding: 0 $spacing_unit;
+		margin: 0 auto;
+
+		@include laptop {
+			height: $header_height * 1.5;
+			max-height: $header_height * 1.5; 
+			transition: $transition_duration max-height;
+
+			&.-scrolled {
+				max-height: $header_height; 
+			}
+		}
+
+		&.has-logo {
+			line-height: 0;
+		}
+	}
+}
+
+
+
+
+//  testing chat popups, ok to delete 
+// .chatTestAlert {
+// 	position: fixed;
+// 	z-index: 9999;
+// 	display: inline-block;
+// 	padding: 10px 15px;
+// 	color: $color__white;
+// 	background: $color__brand-red;
+// 	border-radius: $border_radius;
+// 	bottom: $spacing_unit / 2;
+// 	left: $spacing_unit / 2;
+// 	box-shadow: $box__shadow;
+
+// 	@include tablet {
+// 		bottom: $spacing_unit;
+// 		left: $spacing_unit;
+// 	}
+// }

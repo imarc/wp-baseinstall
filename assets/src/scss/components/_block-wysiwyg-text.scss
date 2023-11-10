@@ -1,0 +1,140 @@
+.wysiwygText {
+	position: relative;
+	padding: ($spacing_unit * 2) 0;
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	&.-textCenter {
+		text-align: center;
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+
+		&.-wysiwygNarrow {
+			max-width: calc($container_max_width - ($spacing_unit * 2));
+			padding: $spacing_unit ($spacing_unit * 2);
+			border-radius: $border_radius;
+
+			@include tablet {
+				padding: ($spacing_unit * 2) ($spacing_unit * 3);
+			}
+		}
+
+		&.-wysiwygNarrowPad {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	&__inner {
+
+		@include phablet {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			margin: 0;
+			// margin-left: -$spacing_unit / 2;
+			// margin-right: -$spacing_unit / 2;
+			margin-left: -$spacing_unit * .75;
+			margin-right: -$spacing_unit * .75;
+
+			&.-twoCol {
+				> * {
+					flex-basis: 50%;
+				}
+			}
+		}
+
+		// @include tablet {
+		// 	> * {
+		// 		flex-basis: 33.3333%;
+		// 	}
+		// }
+
+		// @include laptop {
+		// 	> * {
+		// 		flex-basis: 25%;
+		// 	}
+		// }
+	}
+
+	&__block {
+		position: relative;
+		box-sizing: border-box;
+		width: 100%;
+		// text-align: center;
+		font-family: $font__main;
+		margin-bottom: $spacing_unit * 1.5;
+		display: flex;
+		flex-direction: column;
+		// padding: 0 ($spacing_unit / 2);
+
+		@include phablet {
+			padding: 0 ($spacing_unit * .75);
+		}
+
+		@include tablet {
+			margin-bottom: 0;
+		}
+
+
+		&:last-of-type,
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__title {
+		// font-family: $font__bold;
+		// font-weight: 400;
+		// font-size: 32px;
+		// line-height: 36px;
+		// letter-spacing: -0.5px;
+		// margin-bottom: $spacing_unit * 1.5;
+
+		// &.-smallTitle { 
+		// 	font-family: $font__bold;
+		// 	font-size: 24px;
+		// 	line-height: 28px;
+		// }
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		.-textCenter & {
+			max-width: 960px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	&__copy {
+		font-size: 16px;
+		line-height: 24px;
+		text-align: left;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+
+			h1, h2, h3, h4, h5, h6 {
+				color: inherit;
+			}
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

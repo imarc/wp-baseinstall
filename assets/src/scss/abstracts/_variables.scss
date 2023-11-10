@@ -1,0 +1,174 @@
+// base colors
+$color__white: #fff;
+$color__offwhite: #F8F8F8;
+$color__black: #212121;
+
+// brand colors
+$color__brand-yellow: #CFCFCE; // FBCC45
+$color__brand-yellow2: #e7e7e7;
+$color__brand-warning: #9E5601;
+
+$color__brand-red: #EF634E;
+$color__brand-blue: #4F76A4;
+$color__brand-lt-blue: #89A2C2;
+$color__brand-pink: #FFC6C3; 
+$color__brand-green: #3E8893;
+$color__brand-md-green: #143E47;
+$color__brand-dk-green: #003F48;
+$color__brand-dk-green2: #035C68;
+$color__brand-lt-black: #231F20;
+
+
+$color__brand-primary: #CFCFCE; 
+$color__brand-secondary: #fb6a55;
+$color__brand-tertiary: #657390;
+
+$color__brand-dk-gray: #555555;
+$color__brand-md-gray: #666666;
+$color__brand-md-gray2: #999999;
+$color__brand-lt-gray: #efefef;
+$color__brand-lt-gray2: #E0E0E0;
+$color__brand-lt-gray3: #BDBDBD;
+
+$color__brand-active: #7a8dfb; // 637088
+$color__brand-inactive: #8c93ab; // 637088
+$color__brand-btn-bg-lt: #d9dffb; 
+
+$color__brand-primary-lt: lighten($color__brand-primary, 90%);
+
+
+
+$color__background-body: #fff;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #ccc;
+$color__background-button: #e6e6e6;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+
+$color__text-screen: #21759b;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$color__link: #4169e1; //royalblue
+$color__link-lt: #4c67fc;
+$color__link-visited: #800080; //purple
+$color__link-hover: #191970; //midnightblue
+
+
+$color__text-main: #212121;
+
+
+$box__shadow: 0px 41.7776px 33.4221px 
+			rgba(0, 0, 0, 0.0431313), 0px 22.3363px 17.869px 
+			rgba(0, 0, 0, 0.0357664), 0px 12.5216px 10.0172px 
+			rgba(0, 0, 0, 0.03), 0px 6.6501px 5.32008px 
+			rgba(0, 0, 0, 0.0242336), 0px 2.76726px 2.21381px 
+			rgba(0, 0, 0, 0.0168687);
+
+
+
+
+
+// Responsive breakpoints for mixins
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+$width_mobile: 480px;
+$width_phablet: 640px;
+$width_tablet: 800px;
+$width_widetab: 960px;
+$width_laptop: 1200px;
+$width_desktop: 1400px;
+$width_hdtv: 1600px;
+$hidden_mobile: $width_phablet - 1px;
+$hidden_phablet: $width_tablet - 1px;
+$wordpress_admin: 783px;
+
+// Container max width
+$container_max_width: 1180px;
+// $container_max_width: 1400px;
+$nav_max_width: 1180px;
+// $nav_max_width: 1400px;
+
+// Body padding for fixed nav 
+$header_height: 82px;
+
+// WP Admin Bar height
+$wordpress_admin_default: 46px; 
+$wordpress_admin_full: 32px;
+
+// Global spacing unit for margins/gutters
+$spacing_unit: 2rem;
+
+
+// Global border radius
+$border_radius: 6px;
+$border_width: 1px;
+
+// Transition for hover animations 
+$transition_duration: 0.3s;
+
+// scrollup
+$chevronWidth: 12px; // width of chevron, can be whatever
+$chevronBborderWidth: 2px; // width of borders based on chevron size
+$squareRoot: 1.41421356237; // square root of 2 used for getting chevron diagonal width
+$scrollUpButtonSize: $chevronWidth * $squareRoot; // calculates diagonal of chevron
+
+
+// stylelint-disable value-keyword-case
+$font__main: 'NeueHaasUnicaW1G-Regular', 'Neue Haas Unica W1G', 'Neue Haas Unica', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font__bold: 'NeueHaasUnicaW1G-Bold', 'Neue Haas Unica W1G', 'Neue Haas Unica', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font__headings: 'NeueHaasUnicaW1G-Heavy', 'Neue Haas Unica W1G', 'Neue Haas Unica', "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+
+// stylelint-enable value-keyword-case
+$font__code: monaco, consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
+$font__pre: 'Courier 10 Pitch', courier, monospace;
+$font__size-body: 16px;
+$font__weight-body: 400;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+$font__line-height-forms: 20px;
+
+
+
+// Sana icon font 
+$sana-icon-font-family: "Sana-Icons" !default;
+$sana-icon-font-path: "/wp-content/themes/baseinstall/assets/fonts/" !default;
+
+$icon-green-check: "\e900";
+$icon-grey-x: "\e901";
+$icon-plus: "\e902";
+$icon-pencil: "\e903";
+$icon-more: "\e904";
+$icon-minus: "\e905";
+$icon-filter: "\e906";
+$icon-external-link: "\e907";
+$icon-envelope: "\e908";
+$icon-download: "\e909";
+$icon-circle-question: "\e90a";
+$icon-circle-info: "\e90b";
+$icon-circle-exclamation: "\e90c";
+$icon-circle-checkmark: "\e90d";
+$icon-circle-cancel: "\e90e";
+$icon-chevron-up: "\e90f";
+$icon-chevron-right: "\e910";
+$icon-chevron-left: "\e911";
+$icon-chevron-down: "\e912";
+$icon-checkmark: "\e913";
+$icon-cancel: "\e914";
+$icon-calendar: "\e915";
+$icon-bell-horn: "\e916";
+$icon-arrow-right: "\e917";
+$icon-arrow-left: "\e918";
+$icon-arrow-down: "\e919";
+$icon-arrow-up: "\e91a";
+
+
+
+
+// Spacing / sizing specific to plan suggestion module 
+$slider-height: 28px;
+$slider-handle-border-radius: 50%;
+$slider-track-height: 6px;
+$slider-increment-dot-size: 12px;
+$slider-handle-size: 24px; // height of div too 
+$slider-track-border-radius: 3px;

@@ -1,0 +1,70 @@
+.button,
+a.button,
+// button:not([class*="flickity"]), // making sure this doesn't conflict with carousel
+// input[type="reset"]
+input[type="submit"]:not([class*="hs-button"]),
+input[type="button"] {
+	display: inline-block;
+	text-decoration: none;
+	background: $color__brand-primary;
+	border: 1px solid $color__black;
+	color: $color__black;
+	padding: .75rem ($spacing_unit * .75);
+	margin: 0 0 ($spacing_unit * .75);
+	font-family: $font__bold;
+	line-height: 1.5rem;
+	font-weight: 700;
+	font-size: 18px;
+	border-radius: $border_radius;
+	transition: $transition_duration;
+	text-shadow: none;
+	text-align: center;
+	// min-height: 50px;
+
+	margin-right: $spacing_unit * .75;
+
+	@include tablet {
+		font-size: 19px;
+		padding: .75rem $spacing_unit;
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: $color__black;
+		// box-shadow: 5px 5px $color__black;
+		// transform: translate(-0.25rem,-0.25rem);
+		background: $color__brand-yellow2;
+	}
+
+	&:active,
+	&:focus {
+		transition: $transition_duration / 3;
+		// box-shadow: 2px 2px $color__black;
+		// transform: translate(-0.125rem,-0.125rem);
+	}
+
+	&:visited {
+		color: $color__black;
+	}
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+	// remove margin for buttons in hero block  
+	.hero & {
+		margin-bottom: 0;
+	}
+
+	&.-secondary {
+		color: $color__black;
+		background: $color__white;
+		border-color: $color__black;
+	}
+}
+
+button {
+	&:hover {
+		cursor: pointer;
+	}
+}

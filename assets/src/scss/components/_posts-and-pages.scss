@@ -1,0 +1,825 @@
+.blogIntro {
+	background: url('/wp-content/themes/baseinstall/assets/dist/img/hero.jpg') center / cover no-repeat;
+	text-align: center;
+	padding: ($spacing_unit * 2) 0;
+
+	@include tablet {
+		padding: ($spacing_unit * 5) 0;
+	}
+
+	&.-archive {	
+		text-align: left;
+		padding: ($spacing_unit * 2) 0;
+	}
+
+	&__eyebrow {
+		display: block;
+		margin-bottom: $spacing_unit / 4;
+	}
+
+	&__title {
+		margin-bottom: $spacing_unit * 1.25;
+		font-size: 42px;
+
+		@include tablet {
+			font-size: 52px;
+		}
+
+		.-archive & {
+			margin: 0;
+		}
+	}
+}
+
+
+
+
+
+.blogSection {
+	padding: ($spacing_unit * 2.5) 0 ($spacing_unit / 8);
+
+	&__title {
+		margin-bottom: $spacing_unit * 1.25;
+	}
+
+	&__related {
+		position: relative;
+		background: $color__offwhite;
+		padding: ($spacing_unit * 2) 0;
+
+		@include tablet {
+			padding: ($spacing_unit * 4) 0 ($spacing_unit * 2.5);
+		}
+	}
+
+	&__relatedHeader {
+		text-align: center;
+		margin-bottom: $spacing_unit * 2;
+	}
+
+	&__relatedTitle {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 36px;
+		letter-spacing: -0.5px;
+		color: $color__brand-dk-green;
+		margin: 0;
+	}
+
+
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+	}
+
+	&__posts {
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 0;
+			margin-left: -$spacing_unit / 2;
+			margin-right: -$spacing_unit / 2;
+
+			> * {
+				flex-basis: 1;
+			}
+		}
+	}
+
+	&__post {
+		text-align: left;
+		position: relative;
+		box-sizing: border-box;
+		width: 100%;
+		font-family: $font__main;
+		margin-bottom: $spacing_unit;
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			padding: 0 ($spacing_unit / 2);
+			max-width: 50%;
+
+			.-relatedPosts & {
+				max-width: 33.3333%;
+			}
+		}
+
+		@include laptop {
+			max-width: 33.3333%;
+		}
+	}
+
+	&__postBorder {
+		position: relative;
+		flex-grow: 1;
+		padding: ($spacing_unit * .6) ($spacing_unit * .6) ($spacing_unit * 1.1);
+		transition: $transition_duration;
+		border-radius: $border_radius;
+		overflow: hidden;
+		border: 1px solid transparent;
+		background: $color__offwhite;
+
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&:hover {
+			cursor: pointer;
+			background: $color__offwhite;
+			border-color: $color__black;
+			box-shadow: $box__shadow;
+		}
+	}
+
+	&__postThumb {
+		margin-bottom: $spacing_unit * .75;
+	}
+
+	&__postThumbImg {
+		display: block;
+		margin: 0 auto;
+		border: 1px solid $color__brand-lt-gray2;
+	}
+
+	&__postTextWrap {
+		margin-bottom: $spacing_unit / 2;
+
+		@include tablet {
+			flex-grow: 1;
+		}
+	}
+
+	&__postEyebrow {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+		margin-bottom: $spacing_unit / 3;
+		position: relative;
+		z-index: 5;
+
+		a {
+			color: inherit;
+			border: none;
+		}
+	}
+
+	&__postTitle {
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit / 2;
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 28px;
+		letter-spacing: -0.5px;
+	}
+
+	&__postLink {
+		font-size: 16px;
+		line-height: 24px;
+		color: $color__brand-blue;
+		transition: $transition_duration;
+		text-decoration: none;
+		border: none;
+
+		&::before {
+			content: '';
+			cursor: pointer;
+			position: absolute;
+			inset: 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.resourceSection {
+	padding: ($spacing_unit * 3) 0;
+	text-align: center;
+	background: $color__offwhite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Post and page content sections
+.singlePost {
+	position: relative;
+	background: linear-gradient($color__offwhite, $color__offwhite 500px, $color__white 500px, $color__white 100%);
+	padding: ($spacing_unit * 2) 0 ($spacing_unit * 4);
+
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+
+		// *:last-child {
+		// 	margin: 0;
+		// }
+
+		// matching comp, this lets the sticky sidebar sit slightly to the right 
+		// @include laptop {
+		// 	padding-right: 0;
+		// }
+	}
+
+	&__header {
+		margin-bottom: $spacing_unit * 2;
+	}
+
+	&__headerBreadcrumb {
+		font-size: 16px;
+		line-height: 22px;
+		margin-bottom: $spacing_unit * .75;
+	}
+
+	&__headerBreadcrumb-link,
+	&__headerBreadcrumb-title {
+		display: inline;
+	}
+
+	&__headerBreadcrumb-divider {
+		display: inline-block; 
+		margin: 0 ($spacing_unit / 8);
+	}
+
+	&__title {
+		// font-size: 42px;
+		// line-height: 46px;
+		// color: $color__brand-dk-green;
+		margin-top: 0;
+		margin-bottom: $spacing_unit / 2;
+
+		// @include tablet {
+		// 	font-size: 52px;
+		// 	line-height: 56px;
+		// }
+	}
+
+	&__entryMeta {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 20px;
+		letter-spacing: -0.5px;
+	}
+
+	&__entryMeta-author,
+	&__entryMeta-category,
+	&__entryMeta-terms {
+		display: inline-block;
+	}
+
+	&__entryMeta-separator,
+	&__entryMeta-termSeparator {
+		display: block;
+		color: transparent;
+		line-height: 15px;
+
+		@include phablet {
+			display: inline-block;
+			line-height: 20px;
+			margin: 0 ($spacing_unit * .5);
+			color: $color__brand-lt-gray3;
+		}
+	} 
+
+	&__entryMeta-date {
+		color: $color__brand-lt-gray3;
+		display: inline-block;
+	}
+
+	&__entryMeta-reviewer {
+		font-family: $font__main;
+		font-size: 16px;
+		margin-top: 16px;
+	}
+
+	&__entryImageWrap {
+		position: relative;
+		z-index: 1;
+		padding: $spacing_unit;
+		background: $color__white;
+		border-radius: $border_radius;
+		border: 1px solid $color__black;
+		margin-bottom: $spacing_unit * 1.5;
+		box-shadow: $box__shadow;
+
+		@include tablet {
+			margin-bottom: $spacing_unit * 2.5;
+		}
+	}
+
+	&__entryImage {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+	}
+
+
+
+
+
+
+
+
+
+	// Section below banner with content and sidebar 
+	&__entryWrapper {
+		position: relative;
+
+		@include laptop {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			gap: $spacing_unit * 1.5;
+		}
+	}
+
+	&__entryContent {
+		width: 100%;
+
+		// @include laptop {
+		// 	max-width: 825px;
+		// }
+
+		// headings in single posts need extra margins above 
+		h1, h2, h3, h4, h5, h6 {
+			margin-top: $spacing_unit;
+			// background: green;
+		}
+
+		// .wysiwygText__copy {
+		// 	h1, h2, h3, h4, h5, h6 {
+		// 		margin-top: $spacing_unit;
+		// 		background: green;
+		// 	}
+		// }
+	}
+
+	&__entrySidebar {
+		position: relative;
+		padding: $spacing_unit * .75;
+		background: $color__white;
+		border-radius: $border_radius;
+		border: 1px solid $color__black;
+		align-self: start;  
+		width: 100%;
+		margin-bottom: $spacing_unit;
+
+
+		&.-hidden {
+			display: none;
+			visibility: hidden;
+		}
+
+
+		@include laptop {
+			display: block;
+			visibility: visible;
+			max-width: 300px;
+			margin-bottom: 0;
+			top: $spacing_unit * 4;
+			position: sticky;
+		}
+
+		// @include desktop {
+		// 	margin-right: -($spacing_unit * .75);
+		// }
+	}
+
+	&__entrySidebar-toc {
+
+		@include laptop {
+			margin-bottom: $spacing_unit;
+		}
+
+		&.-hidden {
+			display: none;
+			visibility: hidden;
+		}
+	}
+
+	&__entrySidebar-tocHeading {
+		margin-bottom: $spacing_unit * .75;
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 28px;
+		letter-spacing: -0.5px;
+		color: $color__brand-dk-green;
+	}
+
+	&__entrySidebar-tags {
+		margin-bottom: $spacing_unit;
+		display: none;
+		visibility: hidden;
+
+		@include laptop {
+			display: block;
+			visibility: visible;
+		}
+	}
+
+	&__entrySidebar-tagsHeading {
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -0.25px;
+		color: $color__black;
+		margin-bottom: $spacing_unit / 2;
+	}
+
+
+	&__entrySidebar-tagsButton {
+		display: inline-block;
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 18px;
+		letter-spacing: -0.2px;
+		border-radius: 50px;
+		text-align: center;
+		border: none;
+		color: $color__brand-md-gray;
+		background: $color__brand-lt-gray;
+		padding: ($spacing_unit * .4) ($spacing_unit * .75);
+		margin: 0 ($spacing_unit / 4) ($spacing_unit / 2) 0;
+
+		&:visited {
+			color: $color__brand-md-gray;
+		}
+	}
+
+	// social sharing block specific to posts
+	&__entrySidebar-social {
+		background: $color__brand-blue;
+		border-radius: $border_radius;
+		padding: $spacing_unit * .75;
+		margin: 0;
+		text-align: center;
+		// display: none;
+		// visibility: hidden;
+
+		// @include laptop {
+		// 	display: block;
+		// 	visibility: visible;
+		// }
+	}
+
+	&__entrySidebar-socialHeading {
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -0.25px;
+		color: $color__white;
+		margin-bottom: $spacing_unit / 2;
+	}
+
+	&__entrySidebar-socialIconBlock {
+
+	}
+
+	&__entrySidebar-socialIcon { 
+		display: inline-block;
+		line-height: 0;
+		padding: 0;
+		transition: $transition_duration;
+		text-decoration: none;
+		border: none;
+		margin-right: $spacing_unit / 4; // gives some spacing between social buttons
+
+		svg {
+			height: 28px;
+			width: 28px;
+		}
+
+		path {
+			fill: $color__white;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+
+
+
+	&__entryFooter {
+		@include laptop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// remove padding if inside post content 
+// .singlePost & {
+// 	padding: ($spacing_unit / 2) 0;
+// 	margin-bottom: $spacing_unit * .75;
+// }
+
+
+
+
+
+
+// some core WP stuff 
+.sticky {
+	display: block;
+}
+
+.page {
+	margin: 0;
+
+	&-content {
+		margin: 0;
+	}
+
+	&-links {
+		clear: both;
+		margin: 0;
+	}
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.entry-content,
+.entry-summary {
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+
+// this is just for the kitchen sink examples 
+.kitchenSinkExamples {
+	padding: ($spacing_unit * 2) 0;
+
+	@include tablet {
+		padding: ($spacing_unit * 4) 0;
+	}
+	
+	.container {
+		margin-bottom: ($spacing_unit * .75);
+
+		@include tablet {
+			margin-bottom: ($spacing_unit * 2);
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.sana-glyph {
+		margin-bottom: .5rem;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.send-copy {
+		margin-bottom: $spacing_unit / 2;
+	}
+}
+
+
+
+
+
+.authorPage {
+	border: 1px solid $color__black;
+	border-radius: $border_radius;
+	padding: $spacing_unit;
+	margin-top: $spacing_unit * 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+
+	&__wrapper {
+		margin: 0;
+	}
+
+	// default top/bottom margin, can be overridden in CMS 
+	.authorPage__wrapper & {
+		margin: ($spacing_unit * 2) 0;
+	}
+
+	@include tablet {
+		margin-top: $spacing_unit * 2.5;
+		align-items: center;
+		flex-direction: row;
+		// justify-content: center;
+		padding: $spacing_unit ($spacing_unit * 2);
+	}
+
+	@include laptop {
+		padding: ($spacing_unit * 1.8) ($spacing_unit * 3);
+
+		.singlePost & {
+			padding: $spacing_unit ($spacing_unit * 2);
+		}
+	}
+
+
+	&_headshot {
+		flex-shrink: 0;
+		margin-bottom: $spacing_unit;
+
+		@include tablet {
+			margin-bottom: 0;
+			margin-right: $spacing_unit * 1.5;
+		}
+
+		img {
+			display: block;
+			max-width: 200px;
+			box-shadow: -6px 6px $color__black;
+			border: 1px solid $color__black;
+			border-radius: $border_radius;
+			overflow: hidden;
+		}
+	}
+
+	&_info {
+
+		&-eyebrow {
+			font-family: $font__bold;
+			color: $color__text-main;
+			margin-bottom: $spacing_unit / 4;
+			font-size: 18px;
+
+			&.-customColor {
+				color: inherit;
+			}
+		}
+
+		&-name {
+			font-family: $font__bold;
+			color: $color__brand-dk-green;
+			margin-bottom: $spacing_unit / 2;
+			letter-spacing: -0.5px;
+			line-height: 1.2;
+			font-size: 24px;
+
+			&.-customColor {
+				color: inherit;
+
+				a {
+					color: inherit;
+					border-color: inherit;
+				}
+			}
+		}
+
+		&-bio {	
+			color: $color__text-main;
+			font-family: $font__main;
+			font-size: $font__size-body;
+			font-weight: $font__weight-body;
+			line-height: $font__line-height-body;
+			margin-bottom: $spacing_unit * 1.2;
+
+			&.-customColor {
+				color: inherit;
+			}
+
+			@include tablet {
+				margin-bottom: $spacing_unit;
+			}
+		}
+
+		&-socials {
+			margin-bottom: $spacing_unit / 2;
+		}
+
+		&-socialsIcon {
+			display: inline-block;
+			margin-right: $spacing_unit * .25;
+			margin-bottom: $spacing_unit * .25;
+			// line-height: 0;
+			padding: 0;
+			transition: $transition_duration;
+			border: none;
+
+			// @include laptop {
+			// 	margin-right: $spacing_unit / 2;
+			// }
+
+			svg {
+				height: 24px;
+				width: 24px;
+			}
+
+			path {
+				fill: $color__brand-blue;
+				// fill: red;
+			}
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+
+		&-link {
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

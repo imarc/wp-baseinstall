@@ -1,0 +1,246 @@
+.stripeCardOverlay {
+	position: relative;
+	z-index: 1;
+	// padding: ($spacing_unit * 2) 0;
+
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+	}
+
+	&__cta {
+		position: relative;
+
+		@include tablet {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			text-align: inherit;
+			flex-direction: row-reverse;
+
+			&.-cardRight {
+				flex-direction: row;
+			}
+		}
+	}
+
+	&__text {
+		position: relative;
+		z-index: 1;
+		padding: ($spacing_unit * 1.5) 0 0;
+		margin-bottom: $spacing_unit * 1.5;
+		
+		@include tablet {
+			padding-top: 0;
+			padding-left: $spacing_unit * 2;
+			margin-bottom: 0;
+
+			.-cardRight & {
+				padding-left: 0;
+				padding-right: $spacing_unit * 2;
+			}
+		}
+
+		@include laptop {
+			padding-left: $spacing_unit * 3;
+
+			.-cardRight & {
+				padding-right: $spacing_unit * 3;
+			}
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	&__eyebrow {
+		position: relative;
+		margin: 0 0 ($spacing_unit / 6);
+
+		&.-pseudoButton {
+			margin: 0 0 ($spacing_unit / 2);
+		}
+	}
+
+	&__eyebrowText {
+		position: relative;
+		display: inline-block;
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		.-pseudoButton & {
+			background: $color__white;
+			padding: ($spacing_unit / 4) ($spacing_unit * .375);
+			border-radius: $border_radius;
+			color: $color__black; // setting to black if the bg is white 
+		}
+	}
+
+	&__title {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		&.-smallTitle { 
+			font-family: $font__bold;
+			font-size: 32px;
+			line-height: 36px;
+		}
+
+		@include laptop {
+			width: 16ch;
+		}
+	}
+
+	&__copy {
+		font-size: 16px;
+		line-height: 24px;
+		margin-bottom: $spacing_unit;
+
+		@include laptop {
+			margin-bottom: $spacing_unit * 1.5;
+		}
+	}
+
+	&__card {
+		position: relative;
+		z-index: 1;
+		background: $color__white;
+		border: 1px solid $color__text-main;
+		border-radius: $border_radius;
+		box-shadow: $box__shadow;
+		text-align: center;
+		padding: ($spacing_unit * 2) $spacing_unit;
+		margin-bottom: $spacing_unit * 1.5;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		@include tablet {
+			margin: 0;
+			min-height: 500px;
+			max-width: 440px;
+		}
+
+		@include laptop {
+			padding: ($spacing_unit * 2);
+			min-height: 580px;
+		}
+
+		// @include desktop {
+		// 	min-height: 620px;
+		// }
+	}
+
+	&__cardInner {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing_unit * 2;
+	}
+
+	&__cardContent {
+		margin: 0;
+	}
+
+	&__cardTitle {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 42px;
+		line-height: 56px;
+		letter-spacing: -0.5px;
+		margin-bottom: $spacing_unit / 4;
+		color: $color__brand-dk-green;
+
+		@include laptop {
+			font-size: 52px;
+		}
+	}
+
+	&__cardCopy {
+		font-family: $font__bold;
+		font-size: 24px;
+		line-height: 28px;
+		line-height: 30px;
+		letter-spacing: -0.5px;
+		color: $color__text-main;
+
+		@include tablet {
+			font-size: 28px;
+			line-height: 34px;
+		}
+	}
+
+	&__cardImage {
+		width: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	// The stripe background color can be overridden in the block editor 
+	&__stripe {
+		background: $color__brand-yellow;
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: $spacing_unit * 5;
+		width: 100%;
+		overflow: hidden;
+
+		@include tablet {
+			top: $spacing_unit * 2;
+			bottom: $spacing_unit * 2;
+		}
+
+		// @include laptop {
+		// 	top: $spacing_unit * 3;
+		// 	bottom: $spacing_unit * 3;
+		// }
+	}
+
+	// &__shape {
+	// 	display: block; 
+	// 	position: absolute;
+	// 	width: 300px;
+	// 	height: auto;
+
+	// 	&.-shape_1 {
+	// 		top: -180px;
+	// 		right: -120px;
+	// 	}
+
+	// 	&.-shape_2 {
+	// 		bottom: -80px;
+	// 		left: -200px;
+	// 	}
+	// }
+}

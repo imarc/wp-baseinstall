@@ -1,0 +1,356 @@
+.textAndImage {
+	position: relative;
+	padding: ($spacing_unit * 2) 0;
+
+	@include tablet {
+		padding: ($spacing_unit * 4) 0;
+	}
+
+	&.-halfBg {
+		margin: $spacing_unit 0 ($spacing_unit * 3);
+
+		@include tablet {
+			display: flex;
+			justify-content: flex-start;
+			align-item: center;
+			padding: 0;
+			margin: $spacing_unit 0 ($spacing_unit * 2);
+		}
+
+		@include laptop {
+			margin: $spacing_unit 0 ($spacing_unit * 4);
+		}
+	}
+
+	// if option to place image on right is selected 
+	&.-imageRight {
+		@include tablet {
+			justify-content: flex-end;
+		}
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+
+		.-halfBg &   {
+			// background: rgba(red, .2);
+
+			@include tablet {
+				position: absolute;
+				top: 50%; 
+				right: 50%;
+				transform: translate(50%,-50%);
+			}
+		}
+	}
+	
+	&__heading {
+		margin-bottom: $spacing_unit * 1.5;
+
+		@include tablet {
+			margin-bottom: $spacing_unit * 2.5;
+		}
+	}
+
+	&__mainTitle {
+		margin: 0;
+	}
+
+	&__cta {
+		position: relative;
+
+		@include tablet {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			text-align: inherit;
+
+			&.-imageRight {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+
+	&__text {
+		padding: 0;
+
+		@include tablet {
+			padding-left: $spacing_unit * 2;
+
+			.-imageRight & {
+				padding-left: 0;
+				padding-right: $spacing_unit * 2;
+			}
+
+			.-halfBg & {
+				flex: 1;
+				max-width: 50%;
+			}
+
+			&.-oneThird {
+				width: 33.3333%;
+			}
+
+			&.-forty {
+				width: 40%;
+			}
+
+			&.-oneHalf {
+				width: 50%;
+			}
+
+			&.-sixty {
+				width: 60%;
+			}
+
+			&.-twoThirds {
+				width: 66.6666%;
+			}
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__eyebrow {
+		position: relative;
+		margin: 0 0 ($spacing_unit / 4);
+	}
+
+	&__eyebrowText {
+		position: relative;
+		display: inline-block;
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__title {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+
+		&.-smallTitle { 
+			font-family: $font__bold;
+			font-size: 24px;
+			line-height: 28px;
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__copy {
+		font-size: 16px;
+		line-height: 24px;
+		
+		&.-largeCopy {
+			font-size: 18px;
+			line-height: 26px;
+		}
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__image {
+		margin-bottom: $spacing_unit * 1.5;
+
+		@include tablet {
+			margin: 0;
+
+			.-halfBg & {
+				flex: 1;
+				max-width: 50%;
+			}
+
+			&.-oneThird {
+				width: 33.3333%;
+			}
+
+			&.-forty {
+				width: 40%;
+			}
+
+			&.-oneHalf {
+				width: 50%;
+			}
+
+			&.-sixty {
+				width: 60%;
+			}
+
+			&.-twoThirds {
+				width: 66.6666%;
+			}
+		}
+	}
+
+	// regular image 
+	&__img {
+		display: block; 
+		width: 100%;
+		margin: 0;
+
+		// if large background image is enabled 
+		@include tablet {
+			.-halfBg & {
+				display: none;
+				visibility: hidden; 
+			}
+		}
+	}
+
+	// video aspect ratio styles 
+	&__video {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 0;
+		padding-bottom: 56.25%; // 16:9 
+		border-radius: $border_radius;
+		box-shadow: $box__shadow;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	// image carousel styles 
+	&__carouselContainer {
+		position: relative;
+	}
+
+	&__carousel {
+		margin-bottom: $spacing_unit * 2;
+
+		@include tablet {
+			margin-bottom: 0;
+		}
+	}
+
+	&__carouselCell {
+		width: 100%;
+
+		// match height 
+		display: flex;
+		aspect-ratio: 1 / 1;
+	}
+
+	&__carouselCellInner {
+		position: relative;
+		z-index: 4;
+		margin: 0 auto;
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include phablet {
+			width: 80%;
+		}
+
+		@include tablet {
+			width: 90%;
+		}
+	}
+
+	&__carouselImageWrap {
+		position: relative;
+		z-index: 3;
+		width: 100%;
+		// border: 1px solid $color__black;
+		border-radius: $border_radius;
+		overflow: hidden;
+
+		&.-circleImage {
+			aspect-ratio: 1 / 1;
+			border-radius: 50%; // circle option 
+		} 
+	}
+
+	&__carouselImage {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__carouselImageImg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;  
+	}
+
+	&__imageHalfBg {
+		display: none;
+		visibility: hidden; 
+
+		@include tablet {
+			display: block;
+			visibility: visible;
+			width: 50%;
+			max-width: 900px;
+			margin: 0;
+		}
+	}
+
+	&__imgHalfBg {
+		display: block; 
+		margin: 0;
+		width: 100%; 
+	}
+
+
+
+	// these variables are the start/stop points for a custom dashed line 
+	$point1: 0%;
+	$point2: 5%;
+	$point3: 8%;
+	$point4: 100%;
+
+	.theLine {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0; // aligns with 'image' 
+		width: 100%;
+		height: 1px;
+		padding: 1px 0 0;
+		// border-top: 15px solid #fff;
+		// border-bottom: 1px solid #fff;
+
+		background-image:linear-gradient(to right, 
+			// $color__black $point1 $point2, 
+			// $color__white $point2 $point3,
+			// $color__black $point3 $point4
+			$color__black $point1 $point4
+			);
+	}
+}

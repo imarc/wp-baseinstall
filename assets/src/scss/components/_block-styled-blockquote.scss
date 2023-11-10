@@ -1,0 +1,38 @@
+.styledBlockquote {
+  position: relative;
+  padding: ($spacing_unit * 2) 0;
+
+  @include tablet {
+    padding: ($spacing_unit * 3) 0;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: $container_max_width;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 $spacing_unit;
+  }
+
+  &__text {
+    font-family: $font__bold;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.5px;
+    color: $color__brand-blue;
+    border-left: 4px solid $color__brand-yellow;
+    padding: $spacing_unit;
+
+    @include tablet {
+      font-size: 32px;
+      padding: ($spacing_unit * .75) ($spacing_unit * 1.5);
+    }
+
+    // wp block color override
+    &.-customColor {
+      color: inherit;
+    }
+  }
+}

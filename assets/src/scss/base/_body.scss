@@ -1,0 +1,61 @@
+body {
+	background: $color__background-body; // Fallback for when there is no custom background color defined.
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+::selection {
+	color: #555;
+	background: $color__brand-yellow !important;
+}
+
+
+// affix footer fix to bottom if content doesn't fill the page
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+.site {
+	// offset for fixed header
+	padding-top: $header_height;
+
+	@include laptop {
+		padding-top: $header_height * 1.5;
+	}
+
+	display: flex;
+	flex-direction: column;
+	height: 100vh; // Avoid the IE 10-11 `min-height` bug.
+
+	// Prevent Chrome, Opera, and Safari from letting these items   
+	// shrink smaller than their content's default minimum size.
+	//––––––––––––––––––––––––––––––––––––––––––––––––––
+	&Header,
+	&Footer {
+		flex-shrink: 0; 
+	}
+
+	&Content__wrap {
+		flex: 1 0 auto; 
+	}
+}
+
+
+
+.not-found {
+	max-width: $width_tablet;
+	margin: 120px auto;
+	padding: 0 $spacing_unit;
+	text-align: center;
+
+	h1 {
+		font-size: 45px;
+
+		@include tablet {
+			font-size: 60px;
+		}
+	}
+}
+
+.no-results-search {
+	margin-top: $spacing_unit * 2;
+}

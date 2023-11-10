@@ -1,0 +1,185 @@
+.testimonialCarousel {
+	position: relative;
+	z-index: 0; // allows layered shapes to be above background color 
+	padding-top: $spacing_unit * 2.5;
+
+	@include tablet {
+		padding-top: $spacing_unit * 3.5;
+	}
+
+	&.-customColor {
+		background: inherit;
+		color: inherit;
+	}
+
+	&.top-dots {
+		padding-bottom: $spacing_unit * 2;
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: $container_max_width;
+	}
+
+	&__title {
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 36px;
+		letter-spacing: -0.5px;
+		text-align: center;
+		margin-bottom: $spacing_unit * 2;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	// flickity blocks
+	// &__carousel {
+	// }
+
+	&__carouselCell {
+		width: 100%;
+
+		// match height 
+		display: flex;
+		align-items: stretch;
+		min-height: 100%;
+	}
+
+	&__blockquote {
+		position: relative;
+		z-index: 4;
+		background: $color__white;
+		display: flex;
+		align-items: center;
+		margin: 0 auto;
+		border-radius: $border_radius;
+		border: 1px solid $color__black;
+		width: 80%;
+		margin-bottom: $spacing_unit * 3;
+		box-shadow: $box__shadow;
+
+		@include tablet {
+			width: 74%;
+			margin-bottom: $spacing_unit * 5;
+		}
+
+		@include laptop {
+			max-width: 70%;
+		}
+	}
+
+	&__blockquoteInner {
+		position: relative;
+		z-index: 3;
+		padding: $spacing_unit;
+
+		@include tablet {
+			padding: $spacing_unit * 2;
+		}
+
+		@include laptop {
+			padding: ($spacing_unit * 2) ($spacing_unit * 3);
+		}
+
+	}
+
+	&__testimonial {
+		margin-bottom: $spacing_unit;
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 24px;
+		letter-spacing: -0.5px;
+		color: $color__brand-dk-green;
+
+		@include tablet {
+			font-size: 28px;
+			line-height: 34px;
+		}
+	}
+
+	&__attribution {
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__brand-md-gray;
+	}
+
+	&__author {
+		display: block;
+
+		@include tablet {
+			display: inline-block;
+		}
+
+	}
+
+	&__role {
+		display: block;
+
+		@include tablet {
+			display: inline-block;
+
+			// &:before {
+			// 	content: ', ';
+			// 	display: inline-block;
+			// 	margin: 0 6px 0 0;
+			// }
+		}
+	}
+
+
+
+	// layered shapes
+	// &__shape {
+	// 	display: none;
+	// 	visibility: hidden; 
+
+	// 	@include tablet {
+	// 		display: block;
+	// 		visibility: visible; 
+	// 		position: absolute;
+	// 		z-index: -1;
+	// 		background: $color__white;
+	// 		border: 1px solid $color__black;
+	// 		border-radius: $border_radius;
+	// 	}
+
+	// 	&.-border1 {
+	// 		@include tablet {
+	// 			top: 40px;
+	// 			left: 8.75%;
+	// 			right: 8.75%;
+	// 			bottom: 200px;
+	// 		}
+
+	// 		@include laptop {
+	// 			left: 10.75%;
+	// 			right: 10.75%;
+	// 		}
+	// 	}
+
+	// 	&.-border2 {
+	// 		@include tablet {
+	// 			top: 20px;
+	// 			left: 10.5%;
+	// 			right: 10.5%;
+	// 			bottom: 180px;
+	// 		}
+
+	// 		@include laptop {
+	// 			left: 12.75%;
+	// 			right: 12.75%;
+	// 		}
+	// 	}
+	// }
+}

@@ -1,0 +1,65 @@
+// Grid
+// ––––––––––––––––––––––––––––––––––––––––––––––––––
+.container {
+	position: relative;
+	width: 100%;
+	max-width: $container_max_width;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 $spacing_unit;
+
+	// remove padding if inside post content 
+	.singlePost & {
+		padding: ($spacing_unit / 2) 0;
+		margin-bottom: $spacing_unit * .75;
+	}
+
+	// remove margin if part of author block 
+	.authorPage__wrapper & {
+		margin-bottom: 0;
+	}
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0;
+	margin-left: -$spacing_unit;
+	margin-right: -$spacing_unit;
+
+	@include laptop {
+		&.-gutter {
+			gap: ($spacing_unit * 2);
+		}
+	}
+}
+
+.column {
+	flex-basis: 100%;
+	padding: 0 $spacing_unit;
+
+	@include tablet {
+		flex: 1;
+		margin: 0;
+
+		&._25 {
+			width: 25%;
+		}
+		&._33 {
+			width: 33.3333%;
+		}
+		&._40 {
+			max-width: 40%;
+		}
+		&._5 {
+			width: 50%;
+		}
+		&._60 {
+			max-width: 60%;
+		}
+		&._66 {
+			width: 66.6666%;
+		}
+	}
+}

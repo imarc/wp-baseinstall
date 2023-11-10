@@ -1,0 +1,41 @@
+// Jump links 
+// Auto populated table of contents 
+// Base markup: template-parts/blocks/jump_link_block/jump_link_block.php
+// Sidebar div: template-parts/blog-post-meta-toc.php
+// Link script: assets/src/js/custom/scroll-to-top.js
+
+// Parent block with headline in the body copy 
+.jumpLinkBlock {
+	display: block;
+	position: relative;
+	padding-top: $spacing_unit * 3;
+	margin-top: -($spacing_unit * 3);
+
+	// Table of contents block in the sidebar where links are appended 
+	&__jumpLinks {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: start;
+		// gap: $spacing_unit / 2;
+
+		@include laptop {
+			flex-direction: column;
+		}
+	}
+
+	// Anchor generated and linked to headline ID in scroll-to-top.js 
+	&__link {
+		display: block;
+		border: none;
+		font-size: 18px;
+		line-height: 26px;
+		margin-bottom: $spacing_unit / 4;
+	}
+
+	// hide the short version of the title from the body content 
+	&__shortText {
+		display: none;
+		visibility: hidden;
+	}
+}

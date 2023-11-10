@@ -1,0 +1,331 @@
+.ctaBanner {
+	position: relative;
+	width: 100%;
+
+	&__container {
+		position: relative;
+		width: 100%;
+
+		.-cta_narrow & {
+			margin-left: auto;
+			margin-right: auto;
+			// margin-top: ($spacing_unit * 1.5);
+			// margin-bottom: ($spacing_unit * 1.5);
+			// margin-top: $spacing_unit / 2;
+			margin-bottom: $spacing_unit / 2;
+			max-width: $container_max_width;
+			padding: 0 $spacing_unit;
+
+			// remove padding if inside post content 
+			.singlePost & {
+				padding: ($spacing_unit / 2) 0 $spacing_unit;
+				// margin-bottom: $spacing_unit * .75;
+			}
+		}
+	}
+
+	&__block {
+		position: relative;
+		text-align: center;
+		background: $color__brand-yellow;
+		overflow: hidden;
+		
+		// full background image 
+		@include bgImage;
+
+		.-cta_narrow & {
+			border-radius: $border_radius;
+		}
+
+		// wp block editor 
+		&.-customColor {
+			background: inherit;
+		}
+	}
+
+	&__inner {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		border-radius: $border_radius;
+		margin-left: auto;
+		margin-right: auto;
+		padding: ($spacing_unit * 2) ($spacing_unit * 1.5);
+
+		@include tablet {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: $spacing_unit * 2;
+		}
+
+		.-cta_slim & {
+			padding: $spacing_unit;
+			justify-content: space-between;
+		}
+
+		.-cta_narrow & {
+			margin-top: ($spacing_unit * 1.5);
+			margin-bottom: ($spacing_unit * 1.5);
+			justify-content: space-between;
+			position: relative;
+			width: 100%;
+			max-width: $container_max_width;
+			border-radius: $border_radius;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0 ($spacing_unit * 1.5);
+		}
+
+		.-cta_has_form & {
+			justify-content: space-between;
+			position: relative;
+
+			@include tablet {
+				flex-direction: column;
+				gap: $spacing_unit * .5;
+			}
+
+			@include widetablet {
+				flex-direction: row;
+				text-align: left;
+				gap: $spacing_unit * 2;
+			}
+		}
+	}
+
+	&__title {
+		position: relative;
+		z-index: 1;
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+		margin-bottom: $spacing_unit;
+		color: $color__brand-dk-green;
+
+		@include tablet {
+			margin: 0;
+		}
+
+		.-emphasis {
+			font-family: $font__main;
+			font-weight: 400;
+		}
+
+		.-cta_slim &,
+		.-cta_narrow & {
+			font-size: 24px;
+			line-height: 28px;
+		}
+
+
+		.-cta_has_form & {
+			font-size: 28px;
+		}
+
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	.button {
+		position: relative;
+		z-index: 1;
+		flex-shrink: 0;
+		margin: 0;
+	}
+
+	&__form {
+		position: relative;
+		z-index: 5;
+
+		@include tablet {
+			flex: 1;
+		}
+
+		// adding class from above for specificity 
+		.mktoForm {
+			display: block;
+			width: 100% !important;
+			max-width: 100% !important;
+			font-family: $font__main !important;
+			padding: 0 !important;
+			// margin-bottom: 13px;
+
+			@include tablet {
+				display: flex;
+				flex-direction: row;
+				align-items: flex-end;
+				justify-content: flex-end;
+				position: relative;
+
+				// offset to account for label 
+				top: -12px;
+			}
+
+			.mktoFormRow {
+				// hide all rows that are not the email input 
+				display: none;
+				visibility: hidden;
+
+				// email is the first item, targeting that for display 
+				&:nth-of-type(1) {
+					display: block;
+					width: 100%;
+					visibility: visible;
+					margin: 0 0 ($spacing_unit / 2) 0;
+
+					@include tablet {
+						flex-grow: 1;
+						margin: 0 ($spacing_unit / 2) 0 0;
+					}
+
+					@include laptop {
+						max-width: 300px;
+					}
+				}
+			}
+
+			.mktoLabel {
+				display: block;
+				width: 100% !important;
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: flex-end;
+				font-size: 12px;
+				line-height: 24px;
+				color: $color__black;
+			}
+
+			.mktoFormCol {
+				float: unset !important;
+				position: relative;
+				min-height: 2em;
+				margin: 0 !important;
+			}
+
+			.mktoFieldDescriptor.mktoFormCol {
+				margin-bottom: 0 !important;
+			}
+
+			.mktoGutter,
+			.mktoOffset {
+				display: none !important;
+				visibility: hidden !important;
+			}
+
+			.mktoFieldWrap {
+				float: unset !important;
+				width: 100% !important;
+			}
+
+			span.mktoButtonWrap.mktoBlueBox {
+				margin: 0 !important;
+			}
+
+			input[type="email"] {
+				display: block; 
+				width: 100% !important;
+				color: $color__text-input;
+				border: 1px solid $color__black;
+				font-size: 16px;
+				line-height: 24px;
+				border-radius: $border_radius;
+				padding: 12px 24px;
+				box-shadow: none;
+				min-height: 50px;
+
+				@include tablet {
+					min-width: 280px;
+				}		
+
+				&::placeholder {
+					color: $color__brand-md-gray2;
+				}
+
+				&:focus {
+					color: $color__text-input-focus;
+					border-color: $color__brand-primary;
+					outline-color: $color__brand-primary;
+				}
+			}
+
+			.mktoAsterix {
+				float: unset !important;
+				color: $color__brand-red;
+				padding-left: 5px;
+				display: inline-block;
+			}
+
+			span.mktoButtonWrap.mktoBlueBox {
+				display: block;
+				margin: 0 !important;
+			}
+
+			.mktoButtonRow {
+				display: block; 
+				width: 100%;
+
+				@include tablet {
+					max-width: 160px;
+				}
+			}
+
+			.mktoButtonWrap {
+				display: block;
+				width: 100%;
+				max-width: 100%;
+				margin: 0 !important;
+
+				.mktoButton {
+					display: block;
+					width: 100%;
+					max-width: 100%;
+					text-decoration: none;
+					background: $color__brand-primary !important;
+					border: 1px solid $color__black !important;
+					color: $color__black !important;
+					padding: 0 $spacing_unit !important;
+					margin: 0 !important;
+					font-family: $font__bold !important;
+					line-height: 3rem !important;
+					font-weight: 700 !important;
+					font-size: 19px !important;
+					border-radius: $border_radius !important;
+					transition: $transition_duration !important;
+					box-shadow: none !important;
+					min-height: 50px;
+
+					text-shadow: none !important;
+
+					&:hover {
+						cursor: pointer;
+						color: $color__black !important;
+						box-shadow: 5px 5px $color__black !important;
+						transform: translate(-0.25rem,-0.25rem) !important;
+					}
+
+					&:active,
+					&:focus {
+						transition: $transition_duration / 3 !important;
+						box-shadow: 2px 2px $color__black !important;
+						transform: translate(-0.125rem,-0.125rem) !important;
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+

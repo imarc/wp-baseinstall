@@ -1,0 +1,132 @@
+.comparisonIconCard {
+	position: relative;
+	padding: ($spacing_unit * 2) 0;
+
+	// wp block editor 
+	&.-customColor {
+		background: inherit;
+	}
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	@include laptop {
+		padding: ($spacing_unit * 4) 0;
+	}
+	
+	&__heading {
+		margin-bottom: $spacing_unit;
+		text-align: center;
+
+		@include tablet {
+			margin-bottom: $spacing_unit * 2;
+		}
+	}
+
+	&__title {
+		font-family: $font__bold;
+		font-weight: 400;
+			font-size: 40px;
+			line-height: 44px;
+		letter-spacing: -0.5px;
+		margin: 0 0 $spacing_unit;
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__copy {
+		font-size: 18px;
+		line-height: 26px;
+		color: $color__black;
+		max-width: 540px;
+		margin: 0 auto;
+	}
+
+	&__card {
+		// nothing fancy until tablet size 
+
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: $spacing_unit * 1.5;
+		}
+	}
+
+	&__cardTable {
+		flex: 1;
+		padding: ($spacing_unit * 2) ($spacing_unit * 1.5);
+		background: $color__white;
+		border: 1px solid $color__black;
+		border-radius: $border_radius;
+		box-shadow: $box__shadow;
+		overflow: hidden;
+		margin-bottom: $spacing_unit * 2;
+
+		@include tablet {
+			padding: ($spacing_unit * 2) $spacing_unit;
+			margin-bottom: 0;
+		}
+
+		@include laptop {
+			padding: ($spacing_unit * 2) ($spacing_unit * 3);
+		}
+	}
+
+	&__cardHeading {
+		font-family: $font__bold;
+		font-weight: 700;
+		font-size: 28px;
+		line-height: 32px;
+		letter-spacing: -0.5px;
+		margin: 0 0 ($spacing_unit * 1.5);
+
+		@include tablet {
+			font-size: 32px;
+			line-height: 36px;
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__cardItems {
+		display: flex; 
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: $spacing_unit * .75;
+
+		&:last-of-type {
+			margin: 0;
+		}
+	}
+
+	&__cardItemImg {
+		width: 76px;
+		height: 76px;
+		margin-right: $spacing_unit * .75;
+		flex-shrink: 0;
+
+		img {
+			display: block;
+			margin: 0;
+		}
+	}
+
+	&__cardItemDesc {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 24px;
+		letter-spacing: -0.5px;
+
+		color: $color__black;
+	}
+}

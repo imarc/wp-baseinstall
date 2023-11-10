@@ -1,0 +1,90 @@
+// Lever Jobs Board 
+// --------------------------------------------------
+
+.jobBoard {
+	position: relative;
+	padding: ($spacing_unit * 3) 0;
+
+	@include tablet {
+		padding: ($spacing_unit * 4) 0;
+	}
+
+	&__title {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit * 1.5;
+
+		@include tablet {
+			margin-bottom: $spacing_unit * 2;
+		}
+	}
+
+	a { 
+		border: none; 
+	}
+
+	#lever-jobs-container {
+
+		.lever-team {
+			margin-bottom: ($spacing_unit * 2) !important;
+		}
+
+		.lever-team-title {
+			font-family: $font__bold;
+			font-weight: 400;
+			font-size: 28px;
+			line-height: 34px;
+			letter-spacing: -0.5px;
+			margin-top: 0;
+			margin-bottom: ($spacing_unit * .75);
+			color: $color__brand-dk-green;
+		}
+
+		li.lever-job {
+			text-align: left;
+			text-decoration: none;
+			font-family: $font__main;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 26px;
+			display: flex;
+			padding: ($spacing_unit / 8) 0;
+			margin-bottom: $spacing_unit / 2;
+			border-bottom: 1px solid $color__brand-lt-gray3;
+			flex-direction: column;
+			align-items: flex-start;
+
+			@include phablet {
+				flex-direction: row;
+				align-items: center;
+			}
+		}
+
+		.lever-job-title {
+			display: inline-block;
+			margin-bottom: 0;
+			text-decoration: underline;
+			color: $color__brand-blue;
+			flex: 0 0 55%;
+
+			@include tablet {
+				flex: 0 0 65%;
+			}
+		}
+
+		.lever-job-tag {
+			display: inline-block;
+			text-align: right;
+			color: $color__black;
+			flex: 0 0 45%;
+
+			@include tablet {
+				flex: 0 0 35%;
+			}
+		}
+	}
+}

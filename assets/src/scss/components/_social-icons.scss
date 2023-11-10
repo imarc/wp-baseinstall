@@ -1,0 +1,42 @@
+.socialBlock {
+	margin: 0 auto ($spacing_unit * 1.5);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	order: 1;
+
+	@include laptop {
+		order: unset;
+		margin: 0;
+		justify-content: flex-end;
+	}
+
+	// gives some spacing between social buttons
+	&__button { 
+		margin-right: $spacing_unit * .75;
+		display: block;
+		line-height: 0;
+		padding: 0;
+		transition: $transition_duration;
+		border: none;
+
+		@include laptop {
+			margin-right: $spacing_unit / 2;
+		}
+
+		svg {
+			height: 21px;
+			width: 21px;
+		}
+
+		path {
+			fill: $color__brand-blue;
+			// fill: red;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}

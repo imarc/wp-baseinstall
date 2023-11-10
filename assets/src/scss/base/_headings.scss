@@ -1,0 +1,75 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $color__brand-dk-green;
+	clear: both;
+	margin: 0 0 1.5rem;
+	letter-spacing: -0.5px;
+	line-height: 1.2;
+	font-weight: 400;
+	position: relative;
+	z-index: 1;
+
+	// .wysiwygText__copy &,
+	// .singlePost__entryContent & {
+	// 	margin-top: $spacing_unit;
+	// 	background: red;
+	// }
+}
+
+h1 {
+	font-family: $font__headings;
+	font-size: 32px;
+	
+	@include tablet {
+		font-size: 52px;
+	}
+}
+
+h2 {
+	font-family: $font__headings;
+	font-size: 28px;
+
+	@include tablet {
+		font-size: 40px;
+	}
+}
+
+h3 {
+	font-family: $font__bold;
+	font-size: 24px;
+
+	@include tablet {
+		font-size: 32px;
+	}
+}
+
+h4 {
+	font-family: $font__bold;
+	font-size: 20px;
+
+	@include tablet {
+		font-size: 28px;
+	}
+}
+
+h5 {
+	font-family: $font__bold;
+	font-size: 18px;
+
+	@include tablet {
+		font-size: 24px;
+	}
+}
+
+h6 {
+	font-family: $font__bold;
+	font-size: 16px;
+
+	@include tablet {
+		font-size: 22px;
+	}
+}

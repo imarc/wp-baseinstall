@@ -1,0 +1,156 @@
+// vertical tabs block
+.accordionRows {
+	padding: ($spacing_unit * 2) 0;
+	text-align: left;
+
+	@include laptop {
+		padding: ($spacing_unit * 4) 0;
+	}
+
+	&__text {
+		margin-bottom: $spacing_unit * 1.5;
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__title {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 36px;
+		text-align: center;
+		letter-spacing: -0.5px;
+		margin-bottom: $spacing_unit / 2;
+	}
+
+	&__description {
+		text-align: center;
+	}
+	
+	&__heading {
+		margin: 0;
+	}
+
+	&__item {
+		border: 1px solid transparent;
+		margin-bottom: $spacing_unit * .75;
+		background: $color__offwhite;
+		border-radius: $border_radius;
+		transition: $transition_duration;
+		padding: ($spacing_unit * .75) 0;
+
+		&:last-of-type {
+			margin: 0;
+		}
+
+		&.-open {
+			background: red;
+		}
+
+		&:hover,
+		&:focus-within {
+			border-color: $color__black;
+		}
+	}
+
+	&__trigger {
+		display: block;
+		position: relative;
+		background: transparent;
+		appearance: none;
+		text-align: left;
+		cursor: pointer;
+		border: none;
+		width: 100%;
+		padding: 0 ($spacing_unit * 2) 0 $spacing_unit;
+		transition: $transition_duration ease;
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 24px;
+		letter-spacing: -0.5px;
+		color: $color__brand-dk-green;
+
+		@include tablet {
+			line-height: 32px;
+			padding: 0 ($spacing_unit * 3) 0 ($spacing_unit * 1.5);
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+
+		// added aria controls to block, should tidy this up after crunch is over 
+		&[aria-expanded='true'] {
+			.accordionRows__toggle-x {
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+	&__toggle-x {
+		position: absolute;
+		display: block;
+		width: 32px;
+		height: 32px;
+		// top: $spacing_unit * 0.875; 
+		top: 0;
+		right: $spacing_unit / 2;
+		transform-origin: center;
+		transform: rotate(-180deg);
+		transition: transform 0.5s;
+		background: $color__brand-yellow;
+		border: 1px solid $color__black;
+		border-radius: 50%;
+
+		@include tablet {
+			right: $spacing_unit * 1.5;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			height: 50%;
+			width: 2px;
+			top: 50%; 
+			right: 50%;
+			transform: translate(50%,-50%);
+			background: $color__black;
+		}
+
+		&:after {
+			width: 50%;
+			height: 2px;
+		}
+	}
+
+	&__toggle-text {
+		display: block;
+		width: 100%;
+	}
+
+	// height expansion is controlled by the JS in accordion_rows.php
+	&__copy {
+		max-height: 0;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		transition: max-height $transition_duration;
+		padding: 0 ($spacing_unit * 2) 0 $spacing_unit;
+
+		@include tablet {
+			padding: 0 ($spacing_unit * 3) 0 ($spacing_unit * 1.5);
+		}
+	}
+
+	&__copyText {
+		p {
+			margin: 10px 0 0;
+		}
+	}
+}

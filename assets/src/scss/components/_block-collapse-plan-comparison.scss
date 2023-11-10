@@ -1,0 +1,274 @@
+.planComparison {
+	position: relative;
+	padding: ($spacing_unit * 2) 0;
+	// background: $color__offwhite;
+	background: $color__white;
+
+	@include tablet {
+		padding: ($spacing_unit * 3) 0;
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+		max-width: $container_max_width;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 $spacing_unit;
+		text-align: center;
+	}
+
+	&__heading {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		max-width: $container_max_width;
+		padding: 0 $spacing_unit;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: $spacing_unit;
+
+		@include tablet {
+			flex-direction: row;
+			margin-bottom: $spacing_unit * 2;
+		}
+	}
+	
+	&__button {
+		@extend .button;
+		margin: ($spacing_unit * 2) 0 $spacing_unit;
+
+		@include tablet {
+			margin-top: $spacing_unit * 2;
+			margin-bottom: 0;
+		}
+
+		@include desktop {
+			margin-top: $spacing_unit * 3;
+		}
+	}
+
+	&__title {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+		margin: 0 0 $spacing_unit;
+
+		@include tablet {
+			margin: 0;
+		}
+
+		// wp block color override
+		&.-customColor {
+			color: inherit;
+		}
+	}
+
+	&__toggle {
+		border: none;
+		background: transparent;
+		font-size: 16px;
+		line-height: 24px;
+		color: $color__brand-blue;
+	}
+
+	&__toggleText {
+		display: inline-block;
+		margin-right: 5px;
+	}
+
+	&__toggleIcon {
+		display: inline-block;
+		transition: .3s;
+
+		.-comparisonOpen & {
+			transform: rotate(-180deg);
+		}
+	}
+
+
+
+	&__chart {
+		*:last-child {
+			margin-bottom: 0;
+		}
+
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			flex-wrap: nowrap;
+			gap: $spacing_unit / 2;
+		}
+
+		@include laptop {
+			gap: $spacing_unit * 1.25;
+		}
+	}
+
+
+
+	&__chartTable {
+		flex: 1;
+		overflow: hidden;
+		// text-align: center;
+		margin-bottom: $spacing_unit;
+		border-radius: $border_radius;
+		border: 1px solid $color__black;
+		background: $color__white;
+
+		@include tablet {
+			margin: 0;
+			box-shadow: $box__shadow;
+		}
+	}
+
+	&__chartInner {
+		padding: 0 ($spacing_unit / 1.5);
+	}
+
+	&__chartBorder {
+		height: 7px;
+
+		&.-yellow {
+			background: $color__brand-yellow;
+		}
+
+		&.-red {
+			background: $color__brand-red;
+		}
+
+		&.-pink {
+			background: $color__brand-pink;
+		}
+
+		&.-blue {
+			background: $color__brand-blue;
+		}
+
+		&.-green {
+			background: $color__brand-dk-green;
+		}
+
+		&.-default {
+			background: $color__brand-md-gray;
+		}
+	}
+
+	&__chartName {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: -0.25px;
+		color: $color__brand-dk-green;
+		margin: $spacing_unit 0 ($spacing_unit / 2);
+
+		@include tablet {
+			font-size: 16px;
+		}
+
+		@include laptop {
+			font-size: 18px;
+		}
+	}
+
+	&__chartPercent {
+		font-family: $font__headings;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 44px;
+		letter-spacing: -0.5px;
+		color: $color__brand-blue;
+		margin-bottom: $spacing_unit / 8;
+
+		@include tablet {
+			font-size: 30px;
+		}
+
+		@include laptop {
+			font-size: 40px;
+		}
+	}
+
+	&__chartLabel {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		color: $color__black;
+		margin-bottom: $spacing_unit * .75;
+	}
+
+	&__chartType {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		letter-spacing: -0.2px;
+		color: $color__black;
+		border-top: 1px solid $color__brand-lt-gray2;
+		border-bottom: 1px solid $color__brand-lt-gray2;
+		padding: ($spacing_unit / 3) 0;
+		margin-bottom: $spacing_unit;
+	}
+
+
+	.-dashedUnderline {
+		display: inline-block;
+		padding-bottom: 3px;
+		// border-bottom: 1px dashed $color__brand-lt-gray3;
+	}
+
+
+
+	// this is the section that changes height on toggle 
+	&__chartDetails {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height ($transition_duration * 2) ease-in-out;
+
+		&.-comparisonOpen {
+			max-height: 1000px;
+		}
+	}
+
+	&__chartItem {
+		margin-bottom: $spacing_unit;
+
+		&:last-of-type {
+			margin-bottom: $spacing_unit * 1.5;
+		}
+	}
+
+	&__chartItemHeading {
+		font-family: $font__bold;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		color: $color__brand-dk-green;
+		margin-bottom: $spacing_unit / 4;
+
+		@include tablet {
+			font-size: 14px;
+			margin-bottom: $spacing_unit / 8;
+		}
+	}
+
+	&__chartItemInfo {
+		font-size: 16px;
+		line-height: 20px;
+		color: $color__black;
+
+		@include tablet {
+			font-size: 14px;
+		}
+
+		&.-icon {
+			font-size: 20px;
+		}
+	}
+}
